@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HOME</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    
+    <header>
+        <h1>HOME</h1>
+        <nav>
+            <a href="./HTML/html.html">HTML</a>
+            <a href="./CSS/css.html">CSS</a>
+            <a href="./JS/js.html">JAVASCRIPT</a>
+        </nav>
+        <hr>
+    </header>
+
+    <div class="middle-section">
+        <button id="open-sidebar-btn" onclick="toggleSidebar()">☰</button>
+        
+        <aside class="sidebar">
+        
+            <div class="sidebar-header">
+                <span>Sidebar</span>        
+                <button class="close-btn" onclick="toggleSidebar()">✕</button>
+            </div>
+
+            <!-- NOI DUNG SIDEBAR -->
+            <div class="sidebar-items">
+                <a href="#" onclick="showSection('doc')">Doc</a>
+                <a href="#" onclick="showSection('about')">About</a>
+            </div>
+        
+        </aside>
+
+        <!-- NOI DUNG CHINH -->
+        <main class="main-content">
+
+            <section id="doc" class="content-section">
+                <h2>Day la doc</h2>
+                <p>...</p>
+            </section>
+
+            <section id="about" class="content-section" style="display: none;">
+                <h2>Giới thiệu</h2>
+
+                <p>
+                    Tôi là sinh viên ngành Công nghệ thông tin, có hứng thú với lập trình, Linux, mạng máy tính và an ninh mạng.
+                    <br>
+                    Tôi thích tìm hiểu công nghệ mới và xây dựng các dự án cá nhân.
+                </p>
+
+                <h2>Học vấn</h2>
+
+                <div class="item">
+                    <h3>Đại học Cửu Long</h3>
+                    <p>Ngành Công Nghệ Thông Tin - Trí Tuệ Nhân Tạo</p>
+                    <span>2025 - Nay</span>
+                </div>
+                
+                <h2>Kỹ năng cơ bản và kiến thức nền tảng</h2>
+
+                <ul>
+                    <li>C / C++</li>
+                    <li>C# / .NET</li>
+                    <li>Python</li>
+                    <li>React</li>
+                    <li>HTML / CSS / JavaScript</li>
+                    <li>Linux</li>
+                    <li>Git / GitHub</li>
+                </ul>
+                
+                <h2>Dự án</h2>
+
+                <div class="item">
+                    <h3>Todo App (<a href="https://todo-app-seven-mocha-91.vercel.app/" target="_blank">Click here</a>)</h3>
+                    <p>
+                        Ứng dụng quản lý công việc được xây dựng bằng React và Node.js.
+                    </p>
+                </div>
+
+                <div class="item">
+                    <h3>Desktop App (Đang nghiên cứu)</h3>
+                    <p>
+                        Ứng dụng desktop sử dụng C#/.NET, lưu trữ dữ liệu bằng SQLite.
+                    </p>
+                </div>
+                
+                <h2>Sở thích</h2>
+
+                <p>
+                    Lập trình, Linux, cybersecurity, nghiên cứu công nghệ và xây dựng các project cá nhân.
+                </p>
+            </section>
+
+        </main>
+    </div>
+
+    <script>
+        function toggleSidebar() {
+            const middleSection = document.querySelector('.middle-section');
+            middleSection.classList.toggle('sidebar-closed');
+        }
+
+        function showSection(sectionId) {
+            const sections = document.querySelectorAll('.content-section');
+            
+            sections.forEach(sec => {
+                sec.style.display = 'none';
+            });
+            
+            const activeSection = document.getElementById(sectionId);
+            if (activeSection) {
+                activeSection.style.display = 'block';
+            }
+        }
+    </script>
+</body>
+</html>

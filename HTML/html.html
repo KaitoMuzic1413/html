@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HTML</title>
+    <link rel="stylesheet" href="html.css">
+</head>
+<body>
+
+    <header>
+        <h1>HTML</h1>
+        <nav>
+            <a href="../index.html">HOME</a>
+            <a href="../CSS/css.html">CSS</a>
+            <a href="../JS/js.html">JAVASCRIPT</a>
+        </nav>
+        <hr>
+    </header>
+
+    <div class="middle-section">
+        <button id="open-sidebar-btn" onclick="toggleSidebar()">☰</button>
+        
+        <aside class="sidebar">
+        
+            <div class="sidebar-header">
+                <span>Sidebar</span>        
+                <button class="close-btn" onclick="toggleSidebar()">✕</button>
+            </div>
+
+            <!-- NOI DUNG SIDEBAR -->
+            <div class="sidebar-items">
+                <a href="#" onclick="showSection('intro-p')">Thẻ &lt;p&gt;</a>
+                <a href="#" onclick="showSection('intro-h')">Thẻ &lt;h1&gt; &lt;h2&gt; ...</a>
+                <a href="#" onclick="showSection('intro-hr')">Thẻ &lt;hr&gt;</a>
+                <a href="#" onclick="showSection('intro-br')">Thẻ &lt;br&gt;</a>
+                <a href="#" onclick="showSection('intro-a')">Thẻ &lt;a&gt;</a>
+                <a href="#" onclick="showSection('intro-div')">Thẻ &lt;div&gt;</a>
+            </div>
+        
+        </aside>
+
+        <!-- NOI DUNG CHINH -->
+        <main class="main-content">
+
+            <section id="intro-p" class="content-section">
+                <h2>1. Thẻ &lt;p&gt; là gì?</h2>
+                <p>Thẻ &lt;p&gt; dùng để tạo một đoạn văn bản trong HTML.</p>
+                <hr>
+
+                <h3>Code:</h3>
+                <div class="code">
+                    <div class="code-header">
+                        <span>HTML</span>
+
+                        <p>&lt;p&gt;Xin chào&lt;/p&gt;</p>
+
+                    </div>
+                </div>
+
+                <h3>Output:</h3>
+                <div class="out-put">Xin chào</div>
+
+            </section>
+
+            <section id="intro-h" class="content-section" style="display: none;">
+
+                <h2>1. Thẻ &lt;h1&gt; là gì?</h2>
+                <p>Thẻ &lt;h1&gt; dùng để tạo một tiêu đề trong HTML.</p>
+
+                <h3>Các loại tiêu đề:</h3>
+
+                <ul>
+                    <li>h1: &lt;h1&gt; tiêu đề 1 &lt;/h1&gt;</li>
+                    <li>h2: &lt;h2&gt; tiêu đề 2 &lt;/h2&gt;</li>
+                    <li>h3: &lt;h3&gt; tiêu đề 3 &lt;/h3&gt;</li>
+                    <li>h4: &lt;h4&gt; tiêu đề 4 &lt;/h4&gt;</li>
+                    <li>h5: &lt;h5&gt; tiêu đề 5 &lt;/h5&gt;</li>
+                    <li>h6: &lt;h6&gt; tiêu đề 6 &lt;/h6&gt;</li>
+                </ul>
+
+                <hr>
+
+                <h3>Code:</h3>
+                <div class="code">
+                    <div class="code-header">
+                        <span>HTML</span>
+
+                        <p>&lt;h1&gt;Tiêu đề 1&lt;/h1&gt;</p>
+                        <p>&lt;h2&gt;Tiêu đề 2&lt;/h1&gt;</p>
+                        <p>&lt;h3&gt;Tiêu đề 3&lt;/h1&gt;</p>
+                        <p>&lt;h4&gt;Tiêu đề 4&lt;/h1&gt;</p>
+                        <p>&lt;h5&gt;Tiêu đề 5&lt;/h1&gt;</p>
+                        <p>&lt;h6&gt;Tiêu đề 6&lt;/h1&gt;</p>
+                    </div>
+                </div>
+
+                <h3>Output:</h3>
+                <div class="out-put">
+                    <h1>Tiêu đề 1</h1>
+                    <h2>Tiêu đề 2</h2>
+                    <h3>Tiêu đề 3</h3>
+                    <h4>Tiêu đề 4</h4>
+                    <h5>Tiêu đề 5</h5>
+                    <h6>Tiêu đề 6</h6>
+                </div>
+
+            </section>
+
+            <section id="intro-hr" class="content-section" style="display: none;">
+                <h2>Gioi thieu the &lthr&gt</h2>
+                <p>Thẻ &lt;p&gt; dùng để tạo đoạn văn bản trong HTML</p>
+            </section>
+
+            <section id="intro-br" class="content-section" style="display: none;">
+                <h2>Gioi thieu the &ltbr&gt</h2>
+                <p>Thẻ &lt;p&gt; dùng để tạo đoạn văn bản trong HTML</p>
+            </section>
+
+            <section id="intro-a" class="content-section" style="display: none;">
+                <h2>Gioi thieu the &lta&gt</h2>
+                <p>Thẻ &lt;p&gt; dùng để tạo đoạn văn bản trong HTML</p>
+            </section>
+
+            <section id="intro-div" class="content-section" style="display: none;">
+                <h2>Giới thiệu về thẻ &lt;div&gt;</h2>
+                <p>Thẻ &lt;div&gt; dùng để chia khối bố cục</p>
+            </section>
+
+        </main>
+    </div>
+
+    <script>
+        function toggleSidebar() {
+            const middleSection = document.querySelector('.middle-section');
+            middleSection.classList.toggle('sidebar-closed');
+        }
+
+        function showSection(sectionId) {
+            const sections = document.querySelectorAll('.content-section');
+            
+            sections.forEach(sec => {
+                sec.style.display = 'none';
+            });
+            
+            const activeSection = document.getElementById(sectionId);
+            if (activeSection) {
+                activeSection.style.display = 'block';
+            }
+        }
+    </script>
+
+</body>
+</html>
