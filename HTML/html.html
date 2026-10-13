@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="vi">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -7,186 +7,1291 @@
     <link rel="stylesheet" href="html.css">
 </head>
 <body>
+<header>
+    <h1>HTML</h1>
+    <nav>
+        <a href="../index.html">HOME</a>
+        <a href="../CSS/css.html">CSS</a>
+        <a href="../JS/js.html">JAVASCRIPT</a>
+    </nav>
+    <hr>
+</header>
+<div class="middle-section">
+    <button id="open-sidebar-btn"
+        onclick="toggleSidebar()"
+        aria-label="Mở sidebar">☰</button>
 
-    <header>
-        <h1>HTML</h1>
-        <nav>
-            <a href="../index.html">HOME</a>
-            <a href="../CSS/css.html">CSS</a>
-            <a href="../JS/js.html">JAVASCRIPT</a>
-        </nav>
-        <hr>
-    </header>
+<aside class="sidebar">
 
-    <div class="middle-section">
-        <button id="open-sidebar-btn" onclick="toggleSidebar()">☰</button>
-        
-        <aside class="sidebar">
-        
-            <div class="sidebar-header">
-                <span>Sidebar</span>        
-                <button class="close-btn" onclick="toggleSidebar()">✕</button>
-            </div>
-
-            <!-- NOI DUNG SIDEBAR -->
-            <div class="sidebar-items">
-                <a href="#" onclick="showSection('intro-p')">Thẻ &lt;p&gt;</a>
-                <a href="#" onclick="showSection('intro-h')">Thẻ &lt;h1&gt; &lt;h2&gt; ...</a>
-                <a href="#" onclick="showSection('intro-hr')">Thẻ &lt;hr&gt;</a>
-                <a href="#" onclick="showSection('intro-br')">Thẻ &lt;br&gt;</a>
-                <a href="#" onclick="showSection('intro-a')">Thẻ &lt;a&gt;</a>
-                <a href="#" onclick="showSection('intro-div')">Thẻ &lt;div&gt;</a>
-            </div>
-        
-        </aside>
-
-        <!-- NOI DUNG CHINH -->
-        <main class="main-content">
-
-            <section id="intro-p" class="content-section">
-                <h2>1. Thẻ &lt;p&gt; là gì?</h2>
-                <p>Thẻ &lt;p&gt; dùng để tạo một đoạn văn bản trong HTML.</p>
-                <hr>
-
-                <h2>2. Ví dụ:</h2>
-                <h3>Code:</h3>
-                <div class="code">
-                    <div class="code-header">
-                        <span>HTML</span>
-
-                        <p>&lt;p&gt;Xin chào&lt;/p&gt;</p>
-
-                    </div>
-                </div>
-
-                <h3>Output:</h3>
-                <div class="out-put">Xin chào</div>
-
-            </section>
-
-            <section id="intro-h" class="content-section" style="display: none;">
-
-                <h2>1. Thẻ &lt;h1&gt; là gì?</h2>
-                <p>Thẻ &lt;h1&gt; dùng để tạo một tiêu đề trong HTML.</p>
-
-                <h3>Các loại tiêu đề:</h3>
-
-                <ul>
-                    <li>h1: &lt;h1&gt; tiêu đề 1 &lt;/h1&gt;</li>
-                    <li>h2: &lt;h2&gt; tiêu đề 2 &lt;/h2&gt;</li>
-                    <li>h3: &lt;h3&gt; tiêu đề 3 &lt;/h3&gt;</li>
-                    <li>h4: &lt;h4&gt; tiêu đề 4 &lt;/h4&gt;</li>
-                    <li>h5: &lt;h5&gt; tiêu đề 5 &lt;/h5&gt;</li>
-                    <li>h6: &lt;h6&gt; tiêu đề 6 &lt;/h6&gt;</li>
-                </ul>
-
-                <hr>
-
-                <h2>2. Ví dụ:</h2>
-                <h3>Code:</h3>
-                <div class="code">
-                    <div class="code-header">
-                        <span>HTML</span>
-
-                        <p>&lt;h1&gt;Tiêu đề 1&lt;/h1&gt;</p>
-                        <p>&lt;h2&gt;Tiêu đề 2&lt;/h1&gt;</p>
-                        <p>&lt;h3&gt;Tiêu đề 3&lt;/h1&gt;</p>
-                        <p>&lt;h4&gt;Tiêu đề 4&lt;/h1&gt;</p>
-                        <p>&lt;h5&gt;Tiêu đề 5&lt;/h1&gt;</p>
-                        <p>&lt;h6&gt;Tiêu đề 6&lt;/h1&gt;</p>
-                    </div>
-                </div>
-
-                <h3>Output:</h3>
-                <div class="out-put">
-                    <h1>Tiêu đề 1</h1>
-                    <h2>Tiêu đề 2</h2>
-                    <h3>Tiêu đề 3</h3>
-                    <h4>Tiêu đề 4</h4>
-                    <h5>Tiêu đề 5</h5>
-                    <h6>Tiêu đề 6</h6>
-                </div>
-
-            </section>
-
-            <section id="intro-hr" class="content-section" style="display: none;">
-                <h2>1. Thẻ &lt;hr&gt; là gì?</h2>
-                <p>Thẻ &lt;hr&gt; dùng để tạo một đường kẻ ngang trong HTML.</p>
-
-                <hr>
-
-                <h2>2. Ví dụ:</h2>
-                <h3>Code:</h3>
-                <div class="code">
-                    <div class="code-header">
-                        <span>HTML</span>
-
-                        <p>&lt;hr&gt;</p>
-
-                    </div>
-                </div>
-
-                <h3>Output:</h3>
-                <div class="out-put">
-                    <hr>
-                </div>
-            </section>
-
-            <section id="intro-br" class="content-section" style="display: none;">
-                <h2>1. Thẻ &lt;br&gt; là gì?</h2>
-                <p>Thẻ &lt;hr&gt; dùng để xuống dòng trong HTML.</p>
-
-                <hr>
-
-                <h2>2. Ví dụ:</h2>
-                <h3>Code:</h3>
-                <div class="code">
-                    <div class="code-header">
-                        <span>HTML</span>
-
-                        <p>&lt;p&gt;Đây là một đoạn&lt;br&gt;văn bản&lt;/p&gt;</p>
-                        
-                    </div>
-                </div>
-
-                <h3>Output:</h3>
-                <div class="out-put">
-                    <p>Đây là một đoạn<br>văn bản</p>
-                </div>
-            </section>
-
-            <section id="intro-a" class="content-section" style="display: none;">
-                <h2>Gioi thieu the &lta&gt</h2>
-                <p>Thẻ &lt;p&gt; dùng để tạo đoạn văn bản trong HTML</p>
-            </section>
-
-            <section id="intro-div" class="content-section" style="display: none;">
-                <h2>Giới thiệu về thẻ &lt;div&gt;</h2>
-                <p>Thẻ &lt;div&gt; dùng để chia khối bố cục</p>
-            </section>
-
-        </main>
+    <div class="sidebar-header">
+        <span>HTML ELEMENTS</span>
+        <button class="close-btn"
+                onclick="toggleSidebar()"
+                aria-label="Đóng sidebar">✕</button>
     </div>
 
-    <script>
-        function toggleSidebar() {
-            const middleSection = document.querySelector('.middle-section');
-            middleSection.classList.toggle('sidebar-closed');
-        }
+    <div class="sidebar-items">
 
-        function showSection(sectionId) {
-            const sections = document.querySelectorAll('.content-section');
-            
-            sections.forEach(sec => {
-                sec.style.display = 'none';
-            });
-            
-            const activeSection = document.getElementById(sectionId);
-            if (activeSection) {
-                activeSection.style.display = 'block';
-            }
-        }
-    </script>
+        <!-- NHÓM CƠ BẢN -->
+        <details class="sidebar-group" open>
+            <summary>Cơ bản</summary>
 
+            <a href="#intro-html" onclick="showSection('intro-html')">Thẻ &lt;html&gt;</a>
+            <a href="#intro-head" onclick="showSection('intro-head')">Thẻ &lt;head&gt;</a>
+            <a href="#intro-body" onclick="showSection('intro-body')">Thẻ &lt;body&gt;</a>
+            <a href="#intro-title" onclick="showSection('intro-title')">Thẻ &lt;title&gt;</a>
+            <a href="#intro-h" onclick="showSection('intro-h')">Thẻ &lt;h1&gt; - &lt;h6&gt;</a>
+            <a href="#intro-p" onclick="showSection('intro-p')">Thẻ &lt;p&gt;</a>
+            <a href="#intro-br" onclick="showSection('intro-br')">Thẻ &lt;br&gt;</a>
+            <a href="#intro-hr" onclick="showSection('intro-hr')">Thẻ &lt;hr&gt;</a>
+            <a href="#intro-a" onclick="showSection('intro-a')">Thẻ &lt;a&gt;</a>
+            <a href="#intro-div" onclick="showSection('intro-div')">Thẻ &lt;div&gt;</a>
+            <a href="#intro-span" onclick="showSection('intro-span')">Thẻ &lt;span&gt;</a>
+        </details>
+
+        <!-- NHÓM VĂN BẢN -->
+        <details class="sidebar-group">
+            <summary>Văn bản</summary>
+
+            <a href="#intro-strong" onclick="showSection('intro-strong')">Thẻ &lt;strong&gt;</a>
+            <a href="#intro-b" onclick="showSection('intro-b')">Thẻ &lt;b&gt;</a>
+            <a href="#intro-em" onclick="showSection('intro-em')">Thẻ &lt;em&gt;</a>
+            <a href="#intro-i" onclick="showSection('intro-i')">Thẻ &lt;i&gt;</a>
+            <a href="#intro-u" onclick="showSection('intro-u')">Thẻ &lt;u&gt;</a>
+            <a href="#intro-s" onclick="showSection('intro-s')">Thẻ &lt;s&gt;</a>
+            <a href="#intro-mark" onclick="showSection('intro-mark')">Thẻ &lt;mark&gt;</a>
+            <a href="#intro-small" onclick="showSection('intro-small')">Thẻ &lt;small&gt;</a>
+            <a href="#intro-sub" onclick="showSection('intro-sub')">Thẻ &lt;sub&gt;</a>
+            <a href="#intro-sup" onclick="showSection('intro-sup')">Thẻ &lt;sup&gt;</a>
+            <a href="#intro-pre" onclick="showSection('intro-pre')">Thẻ &lt;pre&gt;</a>
+            <a href="#intro-code" onclick="showSection('intro-code')">Thẻ &lt;code&gt;</a>
+            <a href="#intro-blockquote" onclick="showSection('intro-blockquote')">Thẻ &lt;blockquote&gt;</a>
+            <a href="#intro-del" onclick="showSection('intro-del')">Thẻ &lt;del&gt;</a>
+            <a href="#intro-ins" onclick="showSection('intro-ins')">Thẻ &lt;ins&gt;</a>
+        </details>
+
+        <!-- NHÓM DANH SÁCH -->
+        <details class="sidebar-group">
+            <summary>Danh sách</summary>
+
+            <!-- Combo là con của Danh sách -->
+            <details class="sidebar-subgroup" style="margin-left: 15px;">
+                <summary>Combo Danh sách</summary>
+                <a href="#intro-combo-list" onclick="showSection('intro-combo-list')">Tổng hợp Thẻ Danh sách</a>
+            </details>
+
+            <a href="#intro-ul" onclick="showSection('intro-ul')">Thẻ &lt;ul&gt;</a>
+            <a href="#intro-ol" onclick="showSection('intro-ol')">Thẻ &lt;ol&gt;</a>
+            <a href="#intro-li" onclick="showSection('intro-li')">Thẻ &lt;li&gt;</a>
+            <a href="#intro-dl" onclick="showSection('intro-dl')">Thẻ &lt;dl&gt;</a>
+            <a href="#intro-dt" onclick="showSection('intro-dt')">Thẻ &lt;dt&gt;</a>
+            <a href="#intro-dd" onclick="showSection('intro-dd')">Thẻ &lt;dd&gt;</a>
+        </details>
+
+        <!-- NHÓM LIÊN KẾT VÀ MEDIA -->
+        <details class="sidebar-group">
+            <summary>Liên kết & Media</summary>
+
+            <a href="#intro-img" onclick="showSection('intro-img')">Thẻ &lt;img&gt;</a>
+            <a href="#intro-picture" onclick="showSection('intro-picture')">Thẻ &lt;picture&gt;</a>
+            <a href="#intro-audio" onclick="showSection('intro-audio')">Thẻ &lt;audio&gt;</a>
+            <a href="#intro-video" onclick="showSection('intro-video')">Thẻ &lt;video&gt;</a>
+            <a href="#intro-source" onclick="showSection('intro-source')">Thẻ &lt;source&gt;</a>
+            <a href="#intro-iframe" onclick="showSection('intro-iframe')">Thẻ &lt;iframe&gt;</a>
+            <a href="#intro-figure" onclick="showSection('intro-figure')">Thẻ &lt;figure&gt;</a>
+            <a href="#intro-figcaption" onclick="showSection('intro-figcaption')">Thẻ &lt;figcaption&gt;</a>
+            <a href="#intro-track" onclick="showSection('intro-track')">Thẻ &lt;track&gt;</a>
+            <a href="#intro-map" onclick="showSection('intro-map')">Thẻ &lt;map&gt;</a>
+            <a href="#intro-area" onclick="showSection('intro-area')">Thẻ &lt;area&gt;</a>
+        </details>
+
+        <!-- NHÓM BỐ CỤC -->
+        <details class="sidebar-group">
+            <summary>Bố cục & Semantic</summary>
+
+            <a href="#intro-header" onclick="showSection('intro-header')">Thẻ &lt;header&gt;</a>
+            <a href="#intro-nav" onclick="showSection('intro-nav')">Thẻ &lt;nav&gt;</a>
+            <a href="#intro-main" onclick="showSection('intro-main')">Thẻ &lt;main&gt;</a>
+            <a href="#intro-section" onclick="showSection('intro-section')">Thẻ &lt;section&gt;</a>
+            <a href="#intro-article" onclick="showSection('intro-article')">Thẻ &lt;article&gt;</a>
+            <a href="#intro-aside" onclick="showSection('intro-aside')">Thẻ &lt;aside&gt;</a>
+            <a href="#intro-footer" onclick="showSection('intro-footer')">Thẻ &lt;footer&gt;</a>
+            <a href="#intro-hgroup" onclick="showSection('intro-hgroup')">Thẻ &lt;hgroup&gt;</a>
+            <a href="#intro-address" onclick="showSection('intro-address')">Thẻ &lt;address&gt;</a>
+            <a href="#intro-search" onclick="showSection('intro-search')">Thẻ &lt;search&gt;</a>
+        </details>
+
+        <!-- NHÓM BẢNG -->
+        <details class="sidebar-group">
+            <summary>Bảng dữ liệu</summary>
+
+            <!-- Combo là con của Bảng dữ liệu -->
+            <details class="sidebar-subgroup" style="margin-left: 15px;">
+                <summary>Combo Bảng</summary>
+                <a href="#intro-combo-table" onclick="showSection('intro-combo-table')">Tổng hợp Thẻ Bảng</a>
+            </details>
+
+            <a href="#intro-table" onclick="showSection('intro-table')">Thẻ &lt;table&gt;</a>
+            <a href="#intro-caption" onclick="showSection('intro-caption')">Thẻ &lt;caption&gt;</a>
+            <a href="#intro-thead" onclick="showSection('intro-thead')">Thẻ &lt;thead&gt;</a>
+            <a href="#intro-tbody" onclick="showSection('intro-tbody')">Thẻ &lt;tbody&gt;</a>
+            <a href="#intro-tfoot" onclick="showSection('intro-tfoot')">Thẻ &lt;tfoot&gt;</a>
+            <a href="#intro-tr" onclick="showSection('intro-tr')">Thẻ &lt;tr&gt;</a>
+            <a href="#intro-th" onclick="showSection('intro-th')">Thẻ &lt;th&gt;</a>
+            <a href="#intro-td" onclick="showSection('intro-td')">Thẻ &lt;td&gt;</a>
+            <a href="#intro-col" onclick="showSection('intro-col')">Thẻ &lt;col&gt;</a>
+            <a href="#intro-colgroup" onclick="showSection('intro-colgroup')">Thẻ &lt;colgroup&gt;</a>
+        </details>
+
+        <!-- NHÓM FORM -->
+        <details class="sidebar-group">
+            <summary>Form & Nhập liệu</summary>
+
+            <!-- Combo là con của Form -->
+            <details class="sidebar-subgroup" style="margin-left: 15px;">
+                <summary>Combo Form</summary>
+                <a href="#intro-combo-form" onclick="showSection('intro-combo-form')">Tổng hợp Form nhập liệu</a>
+            </details>
+
+            <a href="#intro-form" onclick="showSection('intro-form')">Thẻ &lt;form&gt;</a>
+            <a href="#intro-input" onclick="showSection('intro-input')">Thẻ &lt;input&gt;</a>
+            <a href="#intro-label" onclick="showSection('intro-label')">Thẻ &lt;label&gt;</a>
+            <a href="#intro-textarea" onclick="showSection('intro-textarea')">Thẻ &lt;textarea&gt;</a>
+            <a href="#intro-button" onclick="showSection('intro-button')">Thẻ &lt;button&gt;</a>
+            <a href="#intro-select" onclick="showSection('intro-select')">Thẻ &lt;select&gt;</a>
+            <a href="#intro-option" onclick="showSection('intro-option')">Thẻ &lt;option&gt;</a>
+            <a href="#intro-optgroup" onclick="showSection('intro-optgroup')">Thẻ &lt;optgroup&gt;</a>
+            <a href="#intro-fieldset" onclick="showSection('intro-fieldset')">Thẻ &lt;fieldset&gt;</a>
+            <a href="#intro-legend" onclick="showSection('intro-legend')">Thẻ &lt;legend&gt;</a>
+            <a href="#intro-datalist" onclick="showSection('intro-datalist')">Thẻ &lt;datalist&gt;</a>
+            <a href="#intro-output" onclick="showSection('intro-output')">Thẻ &lt;output&gt;</a>
+            <a href="#intro-progress" onclick="showSection('intro-progress')">Thẻ &lt;progress&gt;</a>
+            <a href="#intro-meter" onclick="showSection('intro-meter')">Thẻ &lt;meter&gt;</a>
+        </details>
+
+        <!-- NHÓM NÂNG CAO -->
+        <details class="sidebar-group">
+            <summary>Nâng cao</summary>
+
+            <a href="#intro-details" onclick="showSection('intro-details')">Thẻ &lt;details&gt;</a>
+            <a href="#intro-summary" onclick="showSection('intro-summary')">Thẻ &lt;summary&gt;</a>
+            <a href="#intro-dialog" onclick="showSection('intro-dialog')">Thẻ &lt;dialog&gt;</a>
+            <a href="#intro-template" onclick="showSection('intro-template')">Thẻ &lt;template&gt;</a>
+            <a href="#intro-canvas" onclick="showSection('intro-canvas')">Thẻ &lt;canvas&gt;</a>
+            <a href="#intro-svg" onclick="showSection('intro-svg')">Thẻ &lt;svg&gt;</a>
+            <a href="#intro-script" onclick="showSection('intro-script')">Thẻ &lt;script&gt;</a>
+            <a href="#intro-noscript" onclick="showSection('intro-noscript')">Thẻ &lt;noscript&gt;</a>
+            <a href="#intro-slot" onclick="showSection('intro-slot')">Thẻ &lt;slot&gt;</a>
+            <a href="#intro-object" onclick="showSection('intro-object')">Thẻ &lt;object&gt;</a>
+            <a href="#intro-embed" onclick="showSection('intro-embed')">Thẻ &lt;embed&gt;</a>
+        </details>
+
+        <!-- NHÓM THẺ ĐẶC BIỆT -->
+        <details class="sidebar-group">
+            <summary>Thẻ đặc biệt</summary>
+
+            <a href="#intro-meta" onclick="showSection('intro-meta')">Thẻ &lt;meta&gt;</a>
+            <a href="#intro-link" onclick="showSection('intro-link')">Thẻ &lt;link&gt;</a>
+            <a href="#intro-style" onclick="showSection('intro-style')">Thẻ &lt;style&gt;</a>
+            <a href="#intro-base" onclick="showSection('intro-base')">Thẻ &lt;base&gt;</a>
+            <a href="#intro-time" onclick="showSection('intro-time')">Thẻ &lt;time&gt;</a>
+            <a href="#intro-data" onclick="showSection('intro-data')">Thẻ &lt;data&gt;</a>
+            <a href="#intro-abbr" onclick="showSection('intro-abbr')">Thẻ &lt;abbr&gt;</a>
+            <a href="#intro-q" onclick="showSection('intro-q')">Thẻ &lt;q&gt;</a>
+            <a href="#intro-cite" onclick="showSection('intro-cite')">Thẻ &lt;cite&gt;</a>
+            <a href="#intro-kbd" onclick="showSection('intro-kbd')">Thẻ &lt;kbd&gt;</a>
+            <a href="#intro-var" onclick="showSection('intro-var')">Thẻ &lt;var&gt;</a>
+            <a href="#intro-wbr" onclick="showSection('intro-wbr')">Thẻ &lt;wbr&gt;</a>
+            <a href="#intro-ruby" onclick="showSection('intro-ruby')">Thẻ &lt;ruby&gt;</a>
+            <a href="#intro-bdi" onclick="showSection('intro-bdi')">Thẻ &lt;bdi&gt;</a>
+            <a href="#intro-bdo" onclick="showSection('intro-bdo')">Thẻ &lt;bdo&gt;</a>
+        </details>
+
+        <!-- TRA CỨU -->
+        <details class="sidebar-group">
+            <summary>Tra cứu khác</summary>
+
+            <a href="#intro-all" onclick="showSection('intro-all')">Danh sách thẻ HTML</a>
+            <a href="#intro-obsolete" onclick="showSection('intro-obsolete')">Thẻ lỗi thời</a>
+        </details>
+
+    </div>
+</aside>
+
+<!-- NỘI DUNG CHÍNH -->
+<main class="main-content">
+
+    <!-- CƠ BẢN -->
+    <section id="intro-html" class="content-section" hidden>
+        <h2>Thẻ &lt;html&gt;</h2>
+        <p>Là thẻ gốc (root element) bao bọc toàn bộ tài liệu HTML.</p>
+        <h3>Code:</h3>
+        <div class="code">
+            <div class="code-header">
+                <span>HTML</span>
+                <pre><code>&lt;html lang="vi"&gt;
+  &lt;!-- Nội dung trang web --&gt;
+&lt;/html&gt;</code></pre>
+            </div>
+        </div>
+        <h3>Output:</h3>
+        <div class="out-put">
+            <p><em>(Thẻ gốc chứa toàn bộ trang web)</em></p>
+        </div>
+    </section>
+
+    <section id="intro-head" class="content-section" hidden>
+        <h2>Thẻ &lt;head&gt;</h2>
+        <p>Chứa các siêu dữ liệu (metadata) như tiêu đề trang, liên kết CSS, mã hóa ký tự.</p>
+        <h3>Code:</h3>
+        <div class="code">
+            <div class="code-header">
+                <span>HTML</span>
+                <pre><code>&lt;head&gt;
+  &lt;meta charset="UTF-8"&gt;
+  &lt;title&gt;Tiêu đề trang&lt;/title&gt;
+&lt;/head&gt;</code></pre>
+            </div>
+        </div>
+        <h3>Output:</h3>
+        <div class="out-put">
+            <p><em>(Không hiển thị trực tiếp trên giao diện trình duyệt)</em></p>
+        </div>
+    </section>
+
+    <section id="intro-body" class="content-section" hidden>
+        <h2>Thẻ &lt;body&gt;</h2>
+        <p>Chứa toàn bộ nội dung hiển thị cho người dùng trên trang web.</p>
+        <h3>Code:</h3>
+        <div class="code">
+            <div class="code-header">
+                <span>HTML</span>
+                <pre><code>&lt;body&gt;
+  &lt;h1&gt;Xin chào&lt;/h1&gt;
+&lt;/body&gt;</code></pre>
+            </div>
+        </div>
+        <h3>Output:</h3>
+        <div class="out-put">
+            <h1>Xin chào</h1>
+        </div>
+    </section>
+
+    <section id="intro-title" class="content-section" hidden>
+        <h2>Thẻ &lt;title&gt;</h2>
+        <p>Xác định tiêu đề của trang web (hiển thị trên tab của trình duyệt).</p>
+        <h3>Code:</h3>
+        <div class="code">
+            <div class="code-header">
+                <span>HTML</span>
+                <pre><code>&lt;title&gt;Trang Chủ - Website&lt;/title&gt;</code></pre>
+            </div>
+        </div>
+        <h3>Output:</h3>
+        <div class="out-put">
+            <p><em>(Hiển thị ở thanh tiêu đề tab trình duyệt)</em></p>
+        </div>
+    </section>
+
+    <section id="intro-h" class="content-section" hidden>
+        <h2>Thẻ tiêu đề &lt;h1&gt; - &lt;h6&gt;</h2>
+        <p>Dùng để tạo các cấp tiêu đề trong tài liệu HTML.</p>
+        <h3>Code:</h3>
+        <div class="code">
+            <pre><code>&lt;h1&gt;Tiêu đề 1&lt;/h1&gt;
+&lt;h2&gt;Tiêu đề 2&lt;/h2&gt;
+&lt;h3&gt;Tiêu đề 3&lt;/h3&gt;
+&lt;h4&gt;Tiêu đề 4&lt;/h4&gt;
+&lt;h5&gt;Tiêu đề 5&lt;/h5&gt;
+&lt;h6&gt;Tiêu đề 6&lt;/h6&gt;</code></pre>
+        </div>
+        <h3>Output:</h3>
+        <div class="out-put">
+            <h1>Tiêu đề 1</h1>
+            <h2>Tiêu đề 2</h2>
+            <h3>Tiêu đề 3</h3>
+            <h4>Tiêu đề 4</h4>
+            <h5>Tiêu đề 5</h5>
+            <h6>Tiêu đề 6</h6>
+        </div>
+    </section>
+
+    <section id="intro-p" class="content-section">
+        <h2>Thẻ &lt;p&gt;</h2>
+        <p>Dùng để tạo một đoạn văn bản.</p>
+        <h3>Code:</h3>
+        <div class="code">
+            <div class="code-header">
+                <span>HTML</span>
+                <pre><code>&lt;p&gt;Xin chào&lt;/p&gt;</code></pre>
+            </div>
+        </div>
+        <h3>Output:</h3>
+        <div class="out-put">
+            <p>Xin chào</p>
+        </div>
+    </section>
+
+    <section id="intro-br" class="content-section" hidden>
+        <h2>Thẻ &lt;br&gt;</h2>
+        <p>Dùng để xuống dòng trong một đoạn văn bản.</p>
+        <h3>Code:</h3>
+        <div class="code">
+            <pre><code>&lt;p&gt;Dòng một&lt;br&gt;Dòng hai&lt;/p&gt;</code></pre>
+        </div>
+        <h3>Output:</h3>
+        <div class="out-put">
+            <p>Dòng một<br>Dòng hai</p>
+        </div>
+    </section>
+
+    <section id="intro-hr" class="content-section" hidden>
+        <h2>Thẻ &lt;hr&gt;</h2>
+        <p>Dùng để biểu thị sự chuyển chủ đề hoặc tạo đường phân cách ngữ nghĩa.</p>
+        <h3>Code:</h3>
+        <div class="code">
+            <pre><code>&lt;hr&gt;</code></pre>
+        </div>
+        <h3>Output:</h3>
+        <div class="out-put">
+            <hr>
+        </div>
+    </section>
+
+    <section id="intro-a" class="content-section" hidden>
+        <h2>Thẻ &lt;a&gt;</h2>
+        <p>Dùng để tạo liên kết đến trang web, tệp hoặc vị trí khác.</p>
+        <h3>Code:</h3>
+        <div class="code">
+            <pre><code>&lt;a href="https://example.com"&gt;Truy cập&lt;/a&gt;</code></pre>
+        </div>
+        <h3>Output:</h3>
+        <div class="out-put">
+            <a href="https://example.com">Truy cập</a>
+        </div>
+    </section>
+
+    <section id="intro-div" class="content-section" hidden>
+        <h2>Thẻ &lt;div&gt;</h2>
+        <p>Dùng làm vùng chứa tổng quát để nhóm các phần tử, thường phục vụ bố cục và CSS.</p>
+        <h3>Code:</h3>
+        <div class="code">
+            <pre><code>&lt;div&gt;
+  &lt;p&gt;Nội dung bên trong&lt;/p&gt;
+&lt;/div&gt;</code></pre>
+        </div>
+        <h3>Output:</h3>
+        <div class="out-put">
+            <div>
+                <p>Nội dung bên trong</p>
+            </div>
+        </div>
+    </section>
+
+    <section id="intro-span" class="content-section" hidden>
+        <h2>Thẻ &lt;span&gt;</h2>
+        <p>Vùng chứa dạng dòng (inline) dùng để nhóm các phần tử văn bản nhằm định dạng CSS.</p>
+        <h3>Code:</h3>
+        <div class="code">
+            <pre><code>&lt;p&gt;Xin chào &lt;span style="color: red;"&gt;thế giới&lt;/span&gt;!&lt;/p&gt;</code></pre>
+        </div>
+        <h3>Output:</h3>
+        <div class="out-put">
+            <p>Xin chào <span style="color: red;">thế giới</span>!</p>
+        </div>
+    </section>
+
+    <!-- VĂN BẢN -->
+    <section id="intro-strong" class="content-section" hidden>
+        <h2>Thẻ &lt;strong&gt;</h2>
+        <p>Biểu thị văn bản có tầm quan trọng lớn (thường được hiển thị bằng chữ đậm).</p>
+        <h3>Code:</h3>
+        <div class="code">
+            <pre><code>&lt;p&gt;Chú ý: &lt;strong&gt;Không được bấm vào đây!&lt;/strong&gt;&lt;/p&gt;</code></pre>
+        </div>
+        <h3>Output:</h3>
+        <div class="out-put">
+            <p>Chú ý: <strong>Không được bấm vào đây!</strong></p>
+        </div>
+    </section>
+
+    <section id="intro-b" class="content-section" hidden>
+        <h2>Thẻ &lt;b&gt;</h2>
+        <p>Dùng để in đậm văn bản mà không mang ý nghĩa nhấn mạnh đặc biệt về ngữ nghĩa.</p>
+        <h3>Code:</h3>
+        <div class="code">
+            <pre><code>&lt;p&gt;Đây là chữ &lt;b&gt;in đậm&lt;/b&gt;.&lt;/p&gt;</code></pre>
+        </div>
+        <h3>Output:</h3>
+        <div class="out-put">
+            <p>Đây là chữ <b>in đậm</b>.</p>
+        </div>
+    </section>
+
+    <section id="intro-em" class="content-section" hidden>
+        <h2>Thẻ &lt;em&gt;</h2>
+        <p>Nhấn mạnh nội dung văn bản (thường hiển thị dạng chữ nghiêng).</p>
+        <h3>Code:</h3>
+        <div class="code">
+            <pre><code>&lt;p&gt;Tôi &lt;em&gt;thực sự&lt;/em&gt; thích lập trình.&lt;/p&gt;</code></pre>
+        </div>
+        <h3>Output:</h3>
+        <div class="out-put">
+            <p>Tôi <em>thực sự</em> thích lập trình.</p>
+        </div>
+    </section>
+
+    <section id="intro-i" class="content-section" hidden>
+        <h2>Thẻ &lt;i&gt;</h2>
+        <p>Hiển thị văn bản dạng chữ nghiêng với mục đích phân biệt (thuật ngữ, tên khoa học, v.v.).</p>
+        <h3>Code:</h3>
+        <div class="code">
+            <pre><code>&lt;p&gt;Con mèo nhà tôi có tên là &lt;i&gt;Felix&lt;/i&gt;.&lt;/p&gt;</code></pre>
+        </div>
+        <h3>Output:</h3>
+        <div class="out-put">
+            <p>Con mèo nhà tôi có tên là <i>Felix</i>.</p>
+        </div>
+    </section>
+
+    <section id="intro-u" class="content-section" hidden>
+        <h2>Thẻ &lt;u&gt;</h2>
+        <p>Gạch chân văn bản.</p>
+        <h3>Code:</h3>
+        <div class="code">
+            <pre><code>&lt;p&gt;Từ này được &lt;u&gt;gạch chân&lt;/u&gt;.&lt;/p&gt;</code></pre>
+        </div>
+        <h3>Output:</h3>
+        <div class="out-put">
+            <p>Từ này được <u>gạch chân</u>.</p>
+        </div>
+    </section>
+
+    <section id="intro-s" class="content-section" hidden>
+        <h2>Thẻ &lt;s&gt;</h2>
+        <p>Biểu thị văn bản không còn chính xác hoặc không còn liên quan (gạch ngang giữa chữ).</p>
+        <h3>Code:</h3>
+        <div class="code">
+            <pre><code>&lt;p&gt;Giá cũ: &lt;s&gt;500.000đ&lt;/s&gt; 250.000đ&lt;/p&gt;</code></pre>
+        </div>
+        <h3>Output:</h3>
+        <div class="out-put">
+            <p>Giá cũ: <s>500.000đ</s> 250.000đ</p>
+        </div>
+    </section>
+
+    <section id="intro-mark" class="content-section" hidden>
+        <h2>Thẻ &lt;mark&gt;</h2>
+        <p>Đánh dấu hoặc tô sáng văn bản (mặc định nền vàng).</p>
+        <h3>Code:</h3>
+        <div class="code">
+            <pre><code>&lt;p&gt;Hãy nhớ &lt;mark&gt;học bài&lt;/mark&gt; tối nay.&lt;/p&gt;</code></pre>
+        </div>
+        <h3>Output:</h3>
+        <div class="out-put">
+            <p>Hãy nhớ <mark>học bài</mark> tối nay.</p>
+        </div>
+    </section>
+
+    <section id="intro-small" class="content-section" hidden>
+        <h2>Thẻ &lt;small&gt;</h2>
+        <p>Hiển thị chữ nhỏ hơn (dùng cho chú thích, điều khoản nhỏ).</p>
+        <h3>Code:</h3>
+        <div class="code">
+            <pre><code>&lt;p&gt;Nội dung chính.&lt;br&gt;&lt;small&gt;* Điều kiện áp dụng.&lt;/small&gt;&lt;/p&gt;</code></pre>
+        </div>
+        <h3>Output:</h3>
+        <div class="out-put">
+            <p>Nội dung chính.<br><small>* Điều kiện áp dụng.</small></p>
+        </div>
+    </section>
+
+    <section id="intro-sub" class="content-section" hidden>
+        <h2>Thẻ &lt;sub&gt;</h2>
+        <p>Tạo văn bản chỉ số dưới (dùng trong hóa học, toán học).</p>
+        <h3>Code:</h3>
+        <div class="code">
+            <pre><code>&lt;p&gt;Công thức nước: H&lt;sub&gt;2&lt;/sub&gt;O&lt;/p&gt;</code></pre>
+        </div>
+        <h3>Output:</h3>
+        <div class="out-put">
+            <p>Công thức nước: H<sub>2</sub>O</p>
+        </div>
+    </section>
+
+    <section id="intro-sup" class="content-section" hidden>
+        <h2>Thẻ &lt;sup&gt;</h2>
+        <p>Tạo văn bản chỉ số trên (dùng cho số mũ, số thứ tự).</p>
+        <h3>Code:</h3>
+        <div class="code">
+            <pre><code>&lt;p&gt;Diện tích: 10m&lt;sup&gt;2&lt;/sup&gt;&lt;/p&gt;</code></pre>
+        </div>
+        <h3>Output:</h3>
+        <div class="out-put">
+            <p>Diện tích: 10m<sup>2</sup></p>
+        </div>
+    </section>
+
+    <section id="intro-pre" class="content-section" hidden>
+        <h2>Thẻ &lt;pre&gt;</h2>
+        <p>Hiển thị văn bản được định dạng sẵn (giữ nguyên khoảng trắng và ngắt dòng).</p>
+        <h3>Code:</h3>
+        <div class="code">
+            <pre><code>&lt;pre&gt;
+Dòng 1
+    Dòng 2 có lùi đầu dòng
+&lt;/pre&gt;</code></pre>
+        </div>
+        <h3>Output:</h3>
+        <div class="out-put">
+            <pre>Dòng 1
+    Dòng 2 có lùi đầu dòng</pre>
+        </div>
+    </section>
+
+    <section id="intro-code" class="content-section" hidden>
+        <h2>Thẻ &lt;code&gt;</h2>
+        <p>Hiển thị đoạn mã nguồn máy tính dạng chữ đơn cách (monospace).</p>
+        <h3>Code:</h3>
+        <div class="code">
+            <pre><code>&lt;p&gt;Sử dụng hàm &lt;code&gt;console.log()&lt;/code&gt; để in ra màn hình.&lt;/p&gt;</code></pre>
+        </div>
+        <h3>Output:</h3>
+        <div class="out-put">
+            <p>Sử dụng hàm <code>console.log()</code> để in ra màn hình.</p>
+        </div>
+    </section>
+
+    <section id="intro-blockquote" class="content-section" hidden>
+        <h2>Thẻ &lt;blockquote&gt;</h2>
+        <p>Biểu thị một đoạn trích dẫn dài được lấy từ nguồn khác.</p>
+        <h3>Code:</h3>
+        <div class="code">
+            <pre><code>&lt;blockquote cite="https://example.com"&gt;
+  Học, học nữa, học mãi. - Lê-nin
+&lt;/blockquote&gt;</code></pre>
+        </div>
+        <h3>Output:</h3>
+        <div class="out-put">
+            <blockquote>Học, học nữa, học mãi. - Lê-nin</blockquote>
+        </div>
+    </section>
+
+    <section id="intro-del" class="content-section" hidden>
+        <h2>Thẻ &lt;del&gt;</h2>
+        <p>Biểu thị văn bản đã bị xóa khỏi tài liệu.</p>
+        <h3>Code:</h3>
+        <div class="code">
+            <pre><code>&lt;p&gt;Tôi thích màu &lt;del&gt;đỏ&lt;/del&gt; xanh.&lt;/p&gt;</code></pre>
+        </div>
+        <h3>Output:</h3>
+        <div class="out-put">
+            <p>Tôi thích màu <del>đỏ</del> xanh.</p>
+        </div>
+    </section>
+
+    <section id="intro-ins" class="content-section" hidden>
+        <h2>Thẻ &lt;ins&gt;</h2>
+        <p>Biểu thị văn bản đã được thêm vào tài liệu (thường đi kèm gạch chân).</p>
+        <h3>Code:</h3>
+        <div class="code">
+            <pre><code>&lt;p&gt;Tôi thích màu &lt;ins&gt;xanh lá&lt;/ins&gt;.&lt;/p&gt;</code></pre>
+        </div>
+        <h3>Output:</h3>
+        <div class="out-put">
+            <p>Tôi thích màu <ins>xanh lá</ins>.</p>
+        </div>
+    </section>
+
+    <!-- DANH SÁCH & COMBO DANH SÁCH -->
+    <section id="intro-combo-list" class="content-section" hidden>
+        <h2>Combo Danh sách (List Elements Combined)</h2>
+        <p>Tổng hợp các thẻ danh sách bao gồm danh sách không thứ tự (&lt;ul&gt;), có thứ tự (&lt;ol&gt;) và danh sách mô tả (&lt;dl&gt;).</p>
+        <h3>Code:</h3>
+        <div class="code">
+            <pre><code>&lt;ul&gt;&lt;li&gt;Táo&lt;/li&gt;&lt;li&gt;Cam&lt;/li&gt;&lt;/ul&gt;
+&lt;ol&gt;&lt;li&gt;Bước 1&lt;/li&gt;&lt;li&gt;Bước 2&lt;/li&gt;&lt;/ol&gt;
+&lt;dl&gt;&lt;dt&gt;HTML&lt;/dt&gt;&lt;dd&gt;Ngôn ngữ đánh dấu&lt;/dd&gt;&lt;/dl&gt;</code></pre>
+        </div>
+        <h3>Output:</h3>
+        <div class="out-put">
+            <h4>Danh sách hoa thị:</h4>
+            <ul><li>Táo</li><li>Cam</li></ul>
+            <h4>Danh sách đánh số:</h4>
+            <ol><li>Bước 1</li><li>Bước 2</li></ol>
+            <h4>Danh sách thuật ngữ:</h4>
+            <dl><dt><b>HTML</b></dt><dd>Ngôn ngữ đánh dấu</dd></dl>
+        </div>
+    </section>
+
+    <section id="intro-ul" class="content-section" hidden>
+        <h2>Thẻ &lt;ul&gt;</h2>
+        <p>Tạo danh sách không có thứ tự (danh sách dấu hoa thị).</p>
+        <h3>Code:</h3>
+        <div class="code">
+            <pre><code>&lt;ul&gt;
+  &lt;li&gt;Táo&lt;/li&gt;
+  &lt;li&gt;Cam&lt;/li&gt;
+&lt;/ul&gt;</code></pre>
+        </div>
+        <h3>Output:</h3>
+        <div class="out-put">
+            <ul>
+                <li>Táo</li>
+                <li>Cam</li>
+            </ul>
+        </div>
+    </section>
+
+    <section id="intro-ol" class="content-section" hidden>
+        <h2>Thẻ &lt;ol&gt;</h2>
+        <p>Tạo danh sách có thứ tự (danh sách số).</p>
+        <h3>Code:</h3>
+        <div class="code">
+            <pre><code>&lt;ol&gt;
+  &lt;li&gt;Bước 1&lt;/li&gt;
+  &lt;li&gt;Bước 2&lt;/li&gt;
+&lt;/ol&gt;</code></pre>
+        </div>
+        <h3>Output:</h3>
+        <div class="out-put">
+            <ol>
+                <li>Bước 1</li>
+                <li>Bước 2</li>
+            </ol>
+        </div>
+    </section>
+
+    <section id="intro-li" class="content-section" hidden>
+        <h2>Thẻ &lt;li&gt;</h2>
+        <p>Đại diện cho một mục trong danh sách (`&lt;ul&gt;` hoặc `&lt;ol&gt;`).</p>
+        <h3>Code:</h3>
+        <div class="code">
+            <pre><code>&lt;li&gt;Mục danh sách&lt;/li&gt;</code></pre>
+        </div>
+        <h3>Output:</h3>
+        <div class="out-put">
+            <ul>
+                <li>Mục danh sách</li>
+            </ul>
+        </div>
+    </section>
+
+    <section id="intro-dl" class="content-section" hidden>
+        <h2>Thẻ &lt;dl&gt;</h2>
+        <p>Tạo danh sách mô tả (gồm các cặp thuật ngữ và định nghĩa).</p>
+        <h3>Code:</h3>
+        <div class="code">
+            <pre><code>&lt;dl&gt;
+  &lt;dt&gt;HTML&lt;/dt&gt;
+  &lt;dd&gt;Ngôn ngữ đánh dấu siêu văn bản&lt;/dd&gt;
+&lt;/dl&gt;</code></pre>
+        </div>
+        <h3>Output:</h3>
+        <div class="out-put">
+            <dl>
+                <dt><b>HTML</b></dt>
+                <dd>Ngôn ngữ đánh dấu siêu văn bản</dd>
+            </dl>
+        </div>
+    </section>
+
+    <section id="intro-dt" class="content-section" hidden>
+        <h2>Thẻ &lt;dt&gt;</h2>
+        <p>Chỉ định thuật ngữ/tên trong danh sách mô tả (`&lt;dl&gt;`).</p>
+        <h3>Code:</h3>
+        <div class="code">
+            <pre><code>&lt;dt&gt;Thuật ngữ&lt;/dt&gt;</code></pre>
+        </div>
+        <h3>Output:</h3>
+        <div class="out-put">
+            <dl><dt><b>Thuật ngữ</b></dt></dl>
+        </div>
+    </section>
+
+    <section id="intro-dd" class="content-section" hidden>
+        <h2>Thẻ &lt;dd&gt;</h2>
+        <p>Mô tả cho thuật ngữ (`&lt;dt&gt;`) trong danh sách mô tả (`&lt;dl&gt;`).</p>
+        <h3>Code:</h3>
+        <div class="code">
+            <pre><code>&lt;dd&gt;Phần mô tả chi tiết cho thuật ngữ.&lt;/dd&gt;</code></pre>
+        </div>
+        <h3>Output:</h3>
+        <div class="out-put">
+            <dl><dd>Phần mô tả chi tiết cho thuật ngữ.</dd></dl>
+        </div>
+    </section>
+
+    <!-- MEDIA & LIÊN KẾT -->
+    <section id="intro-img" class="content-section" hidden>
+        <h2>Thẻ &lt;img&gt;</h2>
+        <p>Dùng để nhúng hình ảnh vào trang web.</p>
+        <h3>Code:</h3>
+        <div class="code">
+            <pre><code>&lt;img src="https://via.placeholder.com/150" alt="Ảnh mẫu"&gt;</code></pre>
+        </div>
+        <h3>Output:</h3>
+        <div class="out-put">
+            <img src="https://via.placeholder.com/150" alt="Ảnh mẫu">
+        </div>
+    </section>
+
+    <section id="intro-audio" class="content-section" hidden>
+        <h2>Thẻ &lt;audio&gt;</h2>
+        <p>Dùng để nhúng tệp âm thanh vào trang web.</p>
+        <h3>Code:</h3>
+        <div class="code">
+            <pre><code>&lt;audio controls&gt;
+  &lt;source src="audio.mp3" type="audio/mpeg"&gt;
+&lt;/audio&gt;</code></pre>
+        </div>
+        <h3>Output:</h3>
+        <div class="out-put">
+            <audio controls><source src="" type="audio/mpeg">Trình duyệt không hỗ trợ audio.</audio>
+        </div>
+    </section>
+
+    <section id="intro-video" class="content-section" hidden>
+        <h2>Thẻ &lt;video&gt;</h2>
+        <p>Dùng để nhúng video vào trang web.</p>
+        <h3>Code:</h3>
+        <div class="code">
+            <pre><code>&lt;video width="320" height="240" controls&gt;
+  &lt;source src="movie.mp4" type="video/mp4"&gt;
+&lt;/video&gt;</code></pre>
+        </div>
+        <h3>Output:</h3>
+        <div class="out-put">
+            <video width="200" controls><source src="" type="video/mp4">Trình duyệt không hỗ trợ video.</video>
+        </div>
+    </section>
+
+    <section id="intro-iframe" class="content-section" hidden>
+        <h2>Thẻ &lt;iframe&gt;</h2>
+        <p>Nhúng một trang web khác vào trong trang hiện tại (khung nội tuyến).</p>
+        <h3>Code:</h3>
+        <div class="code">
+            <pre><code>&lt;iframe src="https://example.com" width="300" height="200"&gt;&lt;/iframe&gt;</code></pre>
+        </div>
+        <h3>Output:</h3>
+        <div class="out-put">
+            <iframe src="https://example.com" width="250" height="150" style="border:1px solid #ccc;"></iframe>
+        </div>
+    </section>
+
+    <!-- BỐ CỤC & SEMANTIC -->
+    <section id="intro-header" class="content-section" hidden>
+        <h2>Thẻ &lt;header&gt;</h2>
+        <p>Đại diện cho phần đầu của trang web hoặc một section (thường chứa logo, menu).</p>
+        <h3>Code:</h3>
+        <div class="code">
+            <pre><code>&lt;header&gt;
+  &lt;h1&gt;Logo Website&lt;/h1&gt;
+&lt;/header&gt;</code></pre>
+        </div>
+        <h3>Output:</h3>
+        <div class="out-put">
+            <header style="border: 1px dashed #999; padding: 5px;"><h1>Logo Website</h1></header>
+        </div>
+    </section>
+
+    <section id="intro-nav" class="content-section" hidden>
+        <h2>Thẻ &lt;nav&gt;</h2>
+        <p>Chứa các liên kết điều hướng chính của trang web.</p>
+        <h3>Code:</h3>
+        <div class="code">
+            <pre><code>&lt;nav&gt;
+  &lt;a href="#"&gt;Trang chủ&lt;/a&gt; | &lt;a href="#"&gt;Giới thiệu&lt;/a&gt;
+&lt;/nav&gt;</code></pre>
+        </div>
+        <h3>Output:</h3>
+        <div class="out-put">
+            <nav><a href="#">Trang chủ</a> | <a href="#">Giới thiệu</a></nav>
+        </div>
+    </section>
+
+    <section id="intro-main" class="content-section" hidden>
+        <h2>Thẻ &lt;main&gt;</h2>
+        <p>Xác định nội dung chính, trung tâm của tài liệu HTML.</p>
+        <h3>Code:</h3>
+        <div class="code">
+            <pre><code>&lt;main&gt;
+  &lt;p&gt;Nội dung cốt lõi của trang nằm ở đây.&lt;/p&gt;
+&lt;/main&gt;</code></pre>
+        </div>
+        <h3>Output:</h3>
+        <div class="out-put">
+            <main style="border: 1px dashed #999; padding: 5px;"><p>Nội dung cốt lõi của trang nằm ở đây.</p></main>
+        </div>
+    </section>
+
+    <section id="intro-section" class="content-section" hidden>
+        <h2>Thẻ &lt;section&gt;</h2>
+        <p>Định nghĩa một phần (section) độc lập về mặt ngữ nghĩa trong tài liệu.</p>
+        <h3>Code:</h3>
+        <div class="code">
+            <pre><code>&lt;section&gt;
+  &lt;h2&gt;Về chúng tôi&lt;/h2&gt;
+  &lt;p&gt;Chúng tôi chuyên cung cấp...&lt;/p&gt;
+&lt;/section&gt;</code></pre>
+        </div>
+        <h3>Output:</h3>
+        <div class="out-put">
+            <section style="border: 1px dashed #999; padding: 5px;"><h2>Về chúng tôi</h2><p>Chúng tôi chuyên cung cấp...</p></section>
+        </div>
+    </section>
+
+    <section id="intro-footer" class="content-section" hidden>
+        <h2>Thẻ &lt;footer&gt;</h2>
+        <p>Phần chân trang của một trang web hoặc section (chứa bản quyền, liên hệ).</p>
+        <h3>Code:</h3>
+        <div class="code">
+            <pre><code>&lt;footer&gt;
+  &lt;p&gt;&copy; 2026 Bản quyền thuộc về bạn&lt;/p&gt;
+&lt;/footer&gt;</code></pre>
+        </div>
+        <h3>Output:</h3>
+        <div class="out-put">
+            <footer style="border: 1px dashed #999; padding: 5px;"><p>&copy; 2026 Bản quyền thuộc về bạn</p></footer>
+        </div>
+    </section>
+
+    <!-- BẢNG DỮ LIỆU & COMBO BẢNG -->
+    <section id="intro-combo-table" class="content-section" hidden>
+        <h2>Combo Bảng dữ liệu (Complete Table Structure)</h2>
+        <p>Tổng hợp đầy đủ cấu trúc bảng gồm tiêu đề, phần đầu (&lt;thead&gt;), thân bảng (&lt;tbody&gt;) và chân bảng (&lt;tfoot&gt;).</p>
+        <h3>Code:</h3>
+        <div class="code">
+            <pre><code>&lt;table border="1"&gt;
+  &lt;caption&gt;Bảng thống kê điểm số&lt;/caption&gt;
+  &lt;thead&gt;&lt;tr&gt;&lt;th&gt;Họ tên&lt;/th&gt;&lt;th&gt;Điểm&lt;/th&gt;&lt;/tr&gt;&lt;/thead&gt;
+  &lt;tbody&gt;&lt;tr&gt;&lt;td&gt;An&lt;/td&gt;&lt;td&gt;8.5&lt;/td&gt;&lt;/tr&gt;&lt;/tbody&gt;
+&lt;/table&gt;</code></pre>
+        </div>
+        <h3>Output:</h3>
+        <div class="out-put">
+            <table border="1" cellpadding="8" style="border-collapse: collapse; width: 100%;">
+                <caption>Bảng thống kê điểm số</caption>
+                <thead><tr><th>Họ và tên</th><th>Điểm số</th></tr></thead>
+                <tbody><tr><td>Nguyễn Văn A</td><td>8.5</td></tr></tbody>
+            </table>
+        </div>
+    </section>
+
+    <section id="intro-table" class="content-section" hidden>
+        <h2>Thẻ &lt;table&gt;</h2>
+        <p>Tạo bảng dữ liệu dạng lưới gồm hàng và cột.</p>
+        <h3>Code:</h3>
+        <div class="code">
+            <pre><code>&lt;table border="1"&gt;
+  &lt;tr&gt;&lt;th&gt;Tên&lt;/th&gt;&lt;th&gt;Tuổi&lt;/th&gt;&lt;/tr&gt;
+  &lt;tr&gt;&lt;td&gt;An&lt;/td&gt;&lt;td&gt;20&lt;/td&gt;&lt;/tr&gt;
+&lt;/table&gt;</code></pre>
+        </div>
+        <h3>Output:</h3>
+        <div class="out-put">
+            <table border="1" cellpadding="5">
+                <tr><th>Tên</th><th>Tuổi</th></tr>
+                <tr><td>An</td><td>20</td></tr>
+            </table>
+        </div>
+    </section>
+
+    <section id="intro-tr" class="content-section" hidden>
+        <h2>Thẻ &lt;tr&gt;</h2>
+        <p>Đại diện cho một hàng (row) trong bảng dữ liệu.</p>
+        <h3>Code:</h3>
+        <div class="code">
+            <pre><code>&lt;tr&gt;&lt;td&gt;Dữ liệu ô 1&lt;/td&gt;&lt;td&gt;Dữ liệu ô 2&lt;/td&gt;&lt;/tr&gt;</code></pre>
+        </div>
+        <h3>Output:</h3>
+        <div class="out-put">
+            <table border="1" cellpadding="5"><tr><td>Dữ liệu ô 1</td><td>Dữ liệu ô 2</td></tr></table>
+        </div>
+    </section>
+
+    <section id="intro-th" class="content-section" hidden>
+        <h2>Thẻ &lt;th&gt;</h2>
+        <p>Tạo một ô tiêu đề (header cell) trong bảng.</p>
+        <h3>Code:</h3>
+        <div class="code">
+            <pre><code>&lt;th&gt;Tiêu đề cột&lt;/th&gt;</code></pre>
+        </div>
+        <h3>Output:</h3>
+        <div class="out-put">
+            <table border="1" cellpadding="5"><tr><th>Tiêu đề cột</th></tr></table>
+        </div>
+    </section>
+
+    <section id="intro-td" class="content-section" hidden>
+        <h2>Thẻ &lt;td&gt;</h2>
+        <p>Tạo một ô dữ liệu tiêu chuẩn (standard data cell) trong bảng.</p>
+        <h3>Code:</h3>
+        <div class="code">
+            <pre><code>&lt;td&gt;Nội dung ô&lt;/td&gt;</code></pre>
+        </div>
+        <h3>Output:</h3>
+        <div class="out-put">
+            <table border="1" cellpadding="5"><tr><td>Nội dung ô</td></tr></table>
+        </div>
+    </section>
+
+    <!-- FORM & NHẬP LIỆU & COMBO FORM -->
+    <section id="intro-combo-form" class="content-section" hidden>
+        <h2>Combo Form (Full Form Controls)</h2>
+        <p>Tổng hợp biểu mẫu hoàn chỉnh tích hợp nhãn (&lt;label&gt;), &lt;input&gt;, ô chọn &lt;select&gt;, &lt;textarea&gt; và nút bấm.</p>
+        <h3>Code:</h3>
+        <div class="code">
+            <pre><code>&lt;form&gt;
+  &lt;fieldset&gt;
+    &lt;legend&gt;Thông tin&lt;/legend&gt;
+    &lt;input type="text" placeholder="Họ tên"&gt;
+  &lt;/fieldset&gt;
+&lt;/form&gt;</code></pre>
+        </div>
+        <h3>Output:</h3>
+        <div class="out-put">
+            <form>
+                <fieldset>
+                    <legend>Thông tin đăng ký</legend>
+                    <p><label>Họ tên:</label><br><input type="text" placeholder="Nhập họ tên"></p>
+                    <p><label>Vai trò:</label><br><select><option>Học viên</option></select></p>
+                    <button type="button">Gửi</button>
+                </fieldset>
+            </form>
+        </div>
+    </section>
+
+    <section id="intro-input" class="content-section" hidden>
+        <h2>Thẻ &lt;input&gt;</h2>
+        <p>Tạo trường nhập liệu tương tác (ô văn bản, nút chọn, checkbox, v.v.).</p>
+        <h3>Code:</h3>
+        <div class="code">
+            <pre><code>&lt;input type="text" placeholder="Nhập tên..."&gt;</code></pre>
+        </div>
+        <h3>Output:</h3>
+        <div class="out-put">
+            <input type="text" placeholder="Nhập tên...">
+        </div>
+    </section>
+
+    <section id="intro-label" class="content-section" hidden>
+        <h2>Thẻ &lt;label&gt;</h2>
+        <p>Định nhãn (chú thích) cho một phần tử form.</p>
+        <h3>Code:</h3>
+        <div class="code">
+            <pre><code>&lt;label for="username"&gt;Tên đăng nhập:&lt;/label&gt;
+&lt;input type="text" id="username"&gt;</code></pre>
+        </div>
+        <h3>Output:</h3>
+        <div class="out-put">
+            <label for="demo-username">Tên đăng nhập:</label>
+            <input type="text" id="demo-username">
+        </div>
+    </section>
+
+    <section id="intro-textarea" class="content-section" hidden>
+        <h2>Thẻ &lt;textarea&gt;</h2>
+        <p>Tạo một ô nhập văn bản nhiều dòng.</p>
+        <h3>Code:</h3>
+        <div class="code">
+            <pre><code>&lt;textarea rows="3" placeholder="Nhập nội dung..."&gt;&lt;/textarea&gt;</code></pre>
+        </div>
+        <h3>Output:</h3>
+        <div class="out-put">
+            <textarea rows="3" placeholder="Nhập nội dung..."></textarea>
+        </div>
+    </section>
+
+    <section id="intro-button" class="content-section" hidden>
+        <h2>Thẻ &lt;button&gt;</h2>
+        <p>Tạo một nút bấm có thể nhấp vào.</p>
+        <h3>Code:</h3>
+        <div class="code">
+            <pre><code>&lt;button type="button"&gt;Nhấn vào đây&lt;/button&gt;</code></pre>
+        </div>
+        <h3>Output:</h3>
+        <div class="out-put">
+            <button type="button">Nhấn vào đây</button>
+        </div>
+    </section>
+
+    <section id="intro-select" class="content-section" hidden>
+        <h2>Thẻ &lt;select&gt;</h2>
+        <p>Tạo hộp danh sách thả xuống (dropdown list).</p>
+        <h3>Code:</h3>
+        <div class="code">
+            <pre><code>&lt;select&gt;&lt;option&gt;Lựa chọn 1&lt;/option&gt;&lt;/select&gt;</code></pre>
+        </div>
+        <h3>Output:</h3>
+        <div class="out-put">
+            <select><option>Lựa chọn 1</option><option>Lựa chọn 2</option></select>
+        </div>
+    </section>
+
+    <section id="intro-option" class="content-section" hidden>
+        <h2>Thẻ &lt;option&gt;</h2>
+        <p>Định nghĩa một tùy chọn trong thẻ `&lt;select&gt;` hoặc `&lt;datalist&gt;`.</p>
+        <h3>Code:</h3>
+        <div class="code">
+            <pre><code>&lt;option value="vn"&gt;Việt Nam&lt;/option&gt;</code></pre>
+        </div>
+        <h3>Output:</h3>
+        <div class="out-put">
+            <select><option>Việt Nam</option></select>
+        </div>
+    </section>
+
+    <section id="intro-fieldset" class="content-section" hidden>
+        <h2>Thẻ &lt;fieldset&gt;</h2>
+        <p>Nhóm các điều khiển liên quan trong một biểu mẫu (form).</p>
+        <h3>Code:</h3>
+        <div class="code">
+            <pre><code>&lt;fieldset&gt;&lt;legend&gt;Tiêu đề&lt;/legend&gt;&lt;/fieldset&gt;</code></pre>
+        </div>
+        <h3>Output:</h3>
+        <div class="out-put">
+            <fieldset><legend>Thông tin cá nhân</legend><input type="text" placeholder="Họ tên"></fieldset>
+        </div>
+    </section>
+
+    <section id="intro-legend" class="content-section" hidden>
+        <h2>Thẻ &lt;legend&gt;</h2>
+        <p>Đặt tiêu đề cho khung `&lt;fieldset&gt;`.</p>
+        <h3>Code:</h3>
+        <div class="code">
+            <pre><code>&lt;legend&gt;Tiêu đề nhóm&lt;/legend&gt;</code></pre>
+        </div>
+        <h3>Output:</h3>
+        <div class="out-put">
+            <fieldset><legend>Tiêu đề nhóm</legend></fieldset>
+        </div>
+    </section>
+
+    <section id="intro-progress" class="content-section" hidden>
+        <h2>Thẻ &lt;progress&gt;</h2>
+        <p>Hiển thị thanh tiến trình hoàn thành của một công việc.</p>
+        <h3>Code:</h3>
+        <div class="code">
+            <pre><code>&lt;progress value="70" max="100"&gt;&lt;/progress&gt;</code></pre>
+        </div>
+        <h3>Output:</h3>
+        <div class="out-put">
+            <progress value="70" max="100"></progress>
+        </div>
+    </section>
+
+    <!-- NÂNG CAO -->
+    <section id="intro-details" class="content-section" hidden>
+        <h2>Thẻ &lt;details&gt;</h2>
+        <p>Tạo tiện ích hiển thị nội dung ẩn có thể mở rộng/thu gọn.</p>
+        <h3>Code:</h3>
+        <div class="code">
+            <pre><code>&lt;details&gt;&lt;summary&gt;Xem&lt;/summary&gt;&lt;p&gt;Nội dung&lt;/p&gt;&lt;/details&gt;</code></pre>
+        </div>
+        <h3>Output:</h3>
+        <div class="out-put">
+            <details><summary>Xem chi tiết</summary><p>Nội dung ẩn hiện ra khi bấm vào.</p></details>
+        </div>
+    </section>
+
+    <section id="intro-summary" class="content-section" hidden>
+        <h2>Thẻ &lt;summary&gt;</h2>
+        <p>Định nghĩa tiêu đề hoặc nhãn hiển thị cho thẻ `&lt;details&gt;`.</p>
+        <h3>Code:</h3>
+        <div class="code">
+            <pre><code>&lt;summary&gt;Tiêu đề chi tiết&lt;/summary&gt;</code></pre>
+        </div>
+        <h3>Output:</h3>
+        <div class="out-put">
+            <details><summary>Tiêu đề chi tiết</summary></details>
+        </div>
+    </section>
+
+    <section id="intro-dialog" class="content-section" hidden>
+        <h2>Thẻ &lt;dialog&gt;</h2>
+        <p>Tạo hộp thoại hoặc cửa sổ pop-up tương tác.</p>
+        <h3>Code:</h3>
+        <div class="code">
+            <pre><code>&lt;dialog open&gt;&lt;p&gt;Hộp thoại&lt;/p&gt;&lt;/dialog&gt;</code></pre>
+        </div>
+        <h3>Output:</h3>
+        <div class="out-put">
+            <dialog open style="position: static; display: block; margin: 0;"><p>Đây là hộp thoại dialog.</p></dialog>
+        </div>
+    </section>
+
+    <section id="intro-canvas" class="content-section" hidden>
+        <h2>Thẻ &lt;canvas&gt;</h2>
+        <p>Khu vực dùng để vẽ đồ họa, game hoặc hình ảnh động thông qua JavaScript.</p>
+        <h3>Code:</h3>
+        <div class="code">
+            <pre><code>&lt;canvas width="200" height="100"&gt;&lt;/canvas&gt;</code></pre>
+        </div>
+        <h3>Output:</h3>
+        <div class="out-put">
+            <canvas width="150" height="60" style="border:1px solid #000; background:#f9f9f9;"></canvas>
+        </div>
+    </section>
+
+    <section id="intro-svg" class="content-section" hidden>
+        <h2>Thẻ &lt;svg&gt;</h2>
+        <p>Dùng để nhúng đồ họa vector có thể mở rộng (Scalable Vector Graphics).</p>
+        <h3>Code:</h3>
+        <div class="code">
+            <pre><code>&lt;svg height="50" width="50"&gt;&lt;circle cx="25" cy="25" r="20" fill="red" /&gt;&lt;/svg&gt;</code></pre>
+        </div>
+        <h3>Output:</h3>
+        <div class="out-put">
+            <svg height="50" width="50"><circle cx="25" cy="25" r="20" fill="red" /></svg>
+        </div>
+    </section>
+
+    <section id="intro-script" class="content-section" hidden>
+        <h2>Thẻ &lt;script&gt;</h2>
+        <p>Dùng để nhúng hoặc liên kết mã kịch bản JavaScript.</p>
+        <h3>Code:</h3>
+        <div class="code">
+            <pre><code>&lt;script&gt;console.log("Hello");&lt;/script&gt;</code></pre>
+        </div>
+        <h3>Output:</h3>
+        <div class="out-put">
+            <p><em>(Chạy ngầm mã kịch bản logic trong trình duyệt)</em></p>
+        </div>
+    </section>
+
+    <!-- THẺ ĐẶC BIỆT -->
+    <section id="intro-meta" class="content-section" hidden>
+        <h2>Thẻ &lt;meta&gt;</h2>
+        <p>Cung cấp siêu dữ liệu về tài liệu HTML (bảng mã, viewport, mô tả SEO).</p>
+        <h3>Code:</h3>
+        <div class="code">
+            <pre><code>&lt;meta name="viewport" content="width=device-width, initial-scale=1.0"&gt;</code></pre>
+        </div>
+        <h3>Output:</h3>
+        <div class="out-put">
+            <p><em>(Không hiển thị trên trang, cấu hình hiển thị và SEO)</em></p>
+        </div>
+    </section>
+
+    <section id="intro-link" class="content-section" hidden>
+        <h2>Thẻ &lt;link&gt;</h2>
+        <p>Liên kết tài liệu bên ngoài (thường dùng để nhúng file CSS).</p>
+        <h3>Code:</h3>
+        <div class="code">
+            <pre><code>&lt;link rel="stylesheet" href="style.css"&gt;</code></pre>
+        </div>
+        <h3>Output:</h3>
+        <div class="out-put">
+            <p><em>(Kết nối tệp định dạng bên ngoài)</em></p>
+        </div>
+    </section>
+
+    <section id="intro-style" class="content-section" hidden>
+        <h2>Thẻ &lt;style&gt;</h2>
+        <p>Chứa mã CSS nội bộ (internal CSS) cho trang web.</p>
+        <h3>Code:</h3>
+        <div class="code">
+            <pre><code>&lt;style&gt;body { background: #fff; }&lt;/style&gt;</code></pre>
+        </div>
+        <h3>Output:</h3>
+        <div class="out-put">
+            <p><em>(Định dạng style nội bộ cho trang)</em></p>
+        </div>
+    </section>
+
+    <section id="intro-time" class="content-section" hidden>
+        <h2>Thẻ &lt;time&gt;</h2>
+        <p>Biểu thị một khoảng thời gian hoặc ngày tháng cụ thể theo định dạng máy đọc được.</p>
+        <h3>Code:</h3>
+        <div class="code">
+            <pre><code>&lt;time datetime="08:00"&gt;8:00 sáng&lt;/time&gt;</code></pre>
+        </div>
+        <h3>Output:</h3>
+        <div class="out-put">
+            <p>Mở cửa lúc <time datetime="08:00">8:00 sáng</time>.</p>
+        </div>
+    </section>
+
+    <section id="intro-abbr" class="content-section" hidden>
+        <h2>Thẻ &lt;abbr&gt;</h2>
+        <p>Biểu thị một từ viết tắt hoặc từ cấu thành (có thể kèm thuộc tính title giải nghĩa).</p>
+        <h3>Code:</h3>
+        <div class="code">
+            <pre><code>&lt;abbr title="HyperText Markup Language"&gt;HTML&lt;/abbr&gt;</code></pre>
+        </div>
+        <h3>Output:</h3>
+        <div class="out-put">
+            <p>Học <abbr title="HyperText Markup Language">HTML</abbr> rất thú vị.</p>
+        </div>
+    </section>
+
+    <section id="intro-q" class="content-section" hidden>
+        <h2>Thẻ &lt;q&gt;</h2>
+        <p>Biểu thị một đoạn trích dẫn ngắn (trình duyệt tự động thêm dấu ngoặc kép).</p>
+        <h3>Code:</h3>
+        <div class="code">
+            <pre><code>&lt;q&gt;Chào buổi sáng!&lt;/q&gt;</code></pre>
+        </div>
+        <h3>Output:</h3>
+        <div class="out-put">
+            <p>Cô ấy nói: <q>Chào buổi sáng!</q></p>
+        </div>
+    </section>
+
+    <section id="intro-kbd" class="content-section" hidden>
+        <h2>Thẻ &lt;kbd&gt;</h2>
+        <p>Biểu thị đầu vào từ bàn phím của người dùng (thường hiển thị font chữ đơn cách).</p>
+        <h3>Code:</h3>
+        <div class="code">
+            <pre><code>&lt;kbd&gt;Ctrl&lt;/kbd&gt; + &lt;kbd&gt;C&lt;/kbd&gt;</code></pre>
+        </div>
+        <h3>Output:</h3>
+        <div class="out-put">
+            <p>Nhấn <kbd>Ctrl</kbd> + <kbd>C</kbd> để sao chép.</p>
+        </div>
+    </section>
+
+    <!-- TRA CỨU KHÁC -->
+    <section id="intro-all" class="content-section" hidden>
+        <h2>Danh sách thẻ HTML</h2>
+        <p>Danh mục các phần tử HTML được phân nhóm theo chức năng.</p>
+        <p>Tham khảo danh sách đầy đủ tại 
+            <a href="https://developer.mozilla.org/en-US/docs/Web/HTML/Reference/Elements" 
+               target="_blank" 
+               rel="noopener noreferrer">MDN Web Docs</a>.
+        </p>
+    </section>
+
+    <section id="intro-obsolete" class="content-section" hidden>
+        <h2>Thẻ HTML lỗi thời</h2>
+        <p>Các thẻ như &lt;font&gt;, &lt;center&gt; và &lt;marquee&gt; đã lỗi thời, không nên dùng trong dự án mới.</p>
+        <p>Nên dùng CSS để định dạng và bố trí nội dung.</p>
+    </section>
+
+</main>
+
+</div>
+
+<script>
+    function toggleSidebar() {
+        const middleSection = document.querySelector('.middle-section');
+        middleSection.classList.toggle('sidebar-closed');
+    }
+
+    function showSection(sectionId) {
+        const sections = document.querySelectorAll('.content-section');
+
+        sections.forEach(section => {
+            section.hidden = true;
+        });
+
+        const activeSection = document.getElementById(sectionId);
+
+        if (activeSection) {
+            activeSection.hidden = false;
+        }
+    }
+</script>
 </body>
 </html>

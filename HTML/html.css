@@ -1,47 +1,95 @@
+/* ==============================
+   RESET
+============================== */
 * {
     box-sizing: border-box;
 }
 
+:root {
+    --bg-main: #000;
+    --bg-header: #2c3e50;
+    --bg-sidebar: #29474e;
+    --bg-sidebar-hover: #3b636c;
+    --accent: #00ffff;
+
+    --code-bg: #111827;
+    --code-border: #374151;
+    --code-text: #e5e7eb;
+    --code-muted: #6b7280;
+
+    --radius: 12px;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
 body {
-    background-color: black;
+    background-color: var(--bg-main);
     color: white;
     margin: 0;
     height: 100vh;
+    height: 100dvh;
     display: flex;
     flex-direction: column;
     overflow: hidden;
+    font-family: Arial, Helvetica, sans-serif;
+    line-height: 1.6;
 }
 
+/* ==============================
+   HEADER
+============================== */
 header {
     flex-shrink: 0;
-    background-color: #2c3e50;
+    background-color: var(--bg-header);
     color: white;
     padding: 20px;
     text-align: center;
     z-index: 99;
+    border-bottom: 1px solid #40566b;
 }
 
 header h1 {
     margin-top: 0;
+    margin-bottom: 10px;
+}
+
+a {
+    user-select: none;
+    -webkit-user-drag: none;
 }
 
 nav {
     display: flex;
     justify-content: center;
-    gap: 25px;
+    gap: 15px;
     padding: 10px;
     flex-wrap: wrap;
 }
 
 nav a {
     text-decoration: none;
-    color: #0ff;
+    color: var(--accent);
     text-align: center;
-    border: 1px solid white;
-    border-radius: 15px;
-    padding: 10px;
+    border: 1px solid #64748b;
+    border-radius: 10px;
+    padding: 8px 14px;
+    transition:
+        background-color 0.2s ease,
+        border-color 0.2s ease,
+        transform 0.2s ease;
 }
 
+nav a:hover {
+    background-color: #34495e;
+    border-color: var(--accent);
+    transform: translateY(-2px);
+}
+
+/* ==============================
+   MIDDLE SECTION
+============================== */
 .middle-section {
     display: flex;
     flex: 1;
@@ -50,32 +98,48 @@ nav a {
     overflow: hidden;
 }
 
+/* ==============================
+   SIDEBAR
+============================== */
 .sidebar {
     width: 250px;
     flex-shrink: 0;
-    background-color: #29474e;
+    background-color: var(--bg-sidebar);
     padding: 20px;
-    overflow: hidden;
+    overflow-x: hidden;
+    overflow-y: auto;
     position: relative;
-    transition: width 0.3s ease, padding 0.3s ease;
+    transition:
+        width 0.3s ease,
+        padding 0.3s ease;
+    scrollbar-width: thin;
+    scrollbar-color: #53747b transparent;
 }
 
 .sidebar-header {
     display: flex;
     justify-content: space-between;
     align-items: center;
+    gap: 10px;
     margin-bottom: 15px;
     white-space: nowrap;
+}
+
+.sidebar-header h2,
+.sidebar-header h3 {
+    margin: 0;
+    font-size: 18px;
 }
 
 .close-btn {
     background-color: #e74c3c;
     color: white;
     border: none;
-    padding: 5px 10px;
-    border-radius: 5px;
+    padding: 6px 10px;
+    border-radius: 6px;
     cursor: pointer;
     flex-shrink: 0;
+    transition: background-color 0.2s ease;
 }
 
 .close-btn:hover {
@@ -85,81 +149,319 @@ nav a {
 .sidebar-items a {
     display: block;
     padding: 10px;
-    border-radius: 10px;
+    border-radius: 8px;
     text-decoration: none;
-    color: #0ff;
+    color: var(--accent);
     white-space: nowrap;
-    transition: background-color 0.2s, transform 0.2s;
+    transition:
+        background-color 0.2s ease,
+        transform 0.2s ease;
 }
 
 .sidebar-items a:hover {
-    background-color: #485553;
-    transform: translateY(-2px);
+    background-color: #485f63;
+    transform: translateX(3px);
 }
 
 .sidebar-items a:active {
-    background-color: #29474e;
-    transform: translateY(2px);
+    background-color: var(--bg-sidebar);
+    transform: translateX(1px);
 }
 
+.sidebar-group a {
+    padding-left: 25px;
+}
+
+/* Đóng sidebar */
 .middle-section.sidebar-closed .sidebar {
     width: 0;
-    padding: 0;
+    padding-left: 0;
+    padding-right: 0;
+    border: 0;
 }
 
+/* Nút mở sidebar */
 #open-sidebar-btn {
     display: none;
     position: absolute;
     top: 10px;
     left: 10px;
-    background-color: #29474e;
+    background-color: var(--bg-sidebar);
     color: white;
-    border: 1px solid white;
+    border: 1px solid #64748b;
     padding: 8px 12px;
-    border-radius: 5px;
+    border-radius: 7px;
     cursor: pointer;
     z-index: 10;
+    transition: background-color 0.2s ease;
 }
 
 #open-sidebar-btn:hover {
-    background-color: #3b636c;
+    background-color: var(--bg-sidebar-hover);
 }
 
 .middle-section.sidebar-closed #open-sidebar-btn {
     display: block;
 }
 
+/* ==============================
+   MAIN CONTENT
+============================== */
 .main-content {
     flex: 1;
     min-width: 0;
     min-height: 0;
-    padding: 20px;
-    background-color: black;
+    padding: 35px 25px;
+    background-color: var(--bg-main);
     overflow-y: auto;
     overflow-x: hidden;
     scrollbar-gutter: stable;
+    scrollbar-width: thin;
+    scrollbar-color: #475569 #111;
 }
 
+.main-content > *:first-child {
+    margin-top: 0;
+}
+
+.main-content h1,
+.main-content h2,
+.main-content h3 {
+    line-height: 1.35;
+}
+
+.main-content h2 {
+    margin-top: 32px;
+}
+
+.main-content p {
+    line-height: 1.8;
+}
+
+/* ==============================
+   CODE EDITOR
+============================== */
 .code {
-    border: 1px solid grey;
-    border-radius: 15px;
-    padding: 15px;
+    position: relative;
+    width: 100%;
+    max-width: 100%;
+    min-width: 0;
+
+    margin: 18px 0;
+    padding: 0;
+
+    background-color: var(--code-bg);
+    color: var(--code-text);
+
+    border: 1px solid var(--code-border);
+    border-radius: var(--radius);
+
+    overflow: hidden;
+
+    box-shadow:
+        0 4px 12px rgb(0 0 0 / 20%),
+        inset 0 1px 0 rgb(255 255 255 / 2%);
+}
+
+/* Thanh tiêu đề code */
+.code-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 12px;
+
+    min-height: 42px;
+    padding: 10px 14px;
+
+    background-color: #1f2937;
+    color: #cbd5e1;
+
+    border-bottom: 1px solid var(--code-border);
+
+    font-size: 12px;
+    font-weight: 600;
+    letter-spacing: 0.3px;
+
+    overflow-wrap: anywhere;
+}
+
+/* Chấm trang trí kiểu editor nếu có phần tử phù hợp */
+.code-header::before {
+    content: "";
+    display: block;
+    width: 9px;
+    height: 9px;
+    flex-shrink: 0;
+
+    background-color: #60a5fa;
+    border-radius: 50%;
+}
+
+/* Khung chứa code */
+.code pre {
+    display: block;
+    width: 100%;
+    max-width: 100%;
+
+    margin: 0;
+    padding: 18px 20px;
+
+    color: var(--code-text);
+    background: transparent;
+
+    font-family:
+        "Fira Code",
+        "JetBrains Mono",
+        "Cascadia Code",
+        Consolas,
+        monospace;
+
+    font-size: 14px;
+    line-height: 1.8;
+    tab-size: 4;
+
+    /* Giữ thụt đầu dòng và cho phép tự xuống dòng */
+    white-space: pre-wrap;
+    overflow-wrap: anywhere;
+    word-break: normal;
+
     overflow-x: auto;
 }
 
-.code-header {
-    overflow-wrap: anywhere;
+/* Phần code bên trong */
+.code code {
+    display: block;
+    color: inherit;
+    background: transparent;
+
+    font-family: inherit;
+    font-size: inherit;
+    line-height: inherit;
+
+    white-space: inherit;
+    overflow-wrap: inherit;
+    tab-size: inherit;
 }
 
+/* Bôi đen code */
+.code code::selection,
+.code pre::selection {
+    background-color: #4338ca;
+    color: white;
+}
+
+/* Thanh cuộn ngang/dọc trong code */
+.code pre::-webkit-scrollbar {
+    width: 7px;
+    height: 7px;
+}
+
+.code pre::-webkit-scrollbar-track {
+    background-color: #111827;
+}
+
+.code pre::-webkit-scrollbar-thumb {
+    background-color: #4b5563;
+    border-radius: 10px;
+}
+
+.code pre::-webkit-scrollbar-thumb:hover {
+    background-color: #6b7280;
+}
+
+/* ==============================
+   OUTPUT / RESULT
+============================== */
 .out-put {
-    border: 1px solid grey;
-    border-radius: 15px;
-    padding: 15px;
+    width: 100%;
+    max-width: 100%;
+    min-width: 0;
+
+    margin: 18px 0;
+    padding: 16px;
+
+    background-color: #151515;
+    color: #f3f4f6;
+
+    border: 1px solid #444;
+    border-radius: var(--radius);
+
     overflow-wrap: anywhere;
+    word-break: normal;
+    line-height: 1.8;
 }
 
-ul li {
-    margin: 10px;
+.out-put pre {
+    white-space: pre-wrap;
+    overflow-wrap: anywhere;
+    tab-size: 4;
+    margin: 0;
+}
+
+.out-put img,
+.main-content img {
+    max-width: 100%;
+    height: auto;
+}
+
+/* ==============================
+   LIST
+============================== */
+ul,
+ol {
+    padding-left: 25px;
+}
+
+ul li,
+ol li {
+    margin: 8px 0;
+    line-height: 1.7;
+}
+
+/* ==============================
+   DETAILS / SUMMARY
+============================== */
+details {
+    margin: 12px 0;
+}
+
+summary {
+    color: var(--accent);
+    cursor: pointer;
+    user-select: none;
+    padding: 8px 10px;
+    border-radius: 6px;
+    transition: background-color 0.2s ease;
+}
+
+summary:hover {
+    background-color: var(--bg-sidebar-hover);
+}
+
+/* ==============================
+   SELECTION
+============================== */
+::selection {
+    background-color: #164e63;
+    color: white;
+}
+
+/* ==============================
+   RESPONSIVE: TABLET / MOBILE
+============================== */
+@media (max-width: 768px) {
+    .sidebar {
+        width: 220px;
+    }
+
+    .main-content {
+        padding: 25px 18px;
+    }
+
+    .code pre {
+        padding: 15px;
+        font-size: 13px;
+    }
 }
 
 @media (max-width: 600px) {
@@ -167,19 +469,61 @@ ul li {
         padding: 12px;
     }
 
+    header h1 {
+        font-size: 25px;
+    }
+
     nav {
-        gap: 10px;
+        gap: 8px;
+        padding: 8px 0;
     }
 
     nav a {
-        padding: 8px;
+        padding: 7px 10px;
+        font-size: 13px;
     }
 
     .sidebar {
         width: 200px;
+        padding: 12px;
     }
 
     .main-content {
-        padding: 15px;
+        padding: 20px 12px;
+    }
+
+    .code {
+        border-radius: 9px;
+        margin: 14px 0;
+    }
+
+    .code-header {
+        min-height: 38px;
+        padding: 8px 11px;
+        font-size: 11px;
+    }
+
+    .code pre {
+        padding: 12px;
+        font-size: 12px;
+        line-height: 1.75;
+    }
+
+    .out-put {
+        padding: 12px;
+        font-size: 14px;
+    }
+}
+
+/* ==============================
+   ACCESSIBILITY
+============================== */
+@media (prefers-reduced-motion: reduce) {
+    *,
+    *::before,
+    *::after {
+        scroll-behavior: auto !important;
+        transition-duration: 0.01ms !important;
+        animation-duration: 0.01ms !important;
     }
 }
