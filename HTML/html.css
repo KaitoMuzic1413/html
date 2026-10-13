@@ -213,11 +213,32 @@ nav a:hover {
     min-height: 0;
     padding: 35px 25px;
     background-color: var(--bg-main);
+    
+    /* Bật tính năng cuộn dọc khi nội dung vượt quá chiều cao */
     overflow-y: auto;
     overflow-x: hidden;
+    
+    /* Giữ khoảng cách không bị giật khi xuất hiện thanh cuộn */
     scrollbar-gutter: stable;
     scrollbar-width: thin;
     scrollbar-color: #475569 #111;
+}
+
+.main-content::-webkit-scrollbar {
+    width: 8px;
+}
+
+.main-content::-webkit-scrollbar-track {
+    background-color: #111827;
+}
+
+.main-content::-webkit-scrollbar-thumb {
+    background-color: #4b5563;
+    border-radius: 10px;
+}
+
+.main-content::-webkit-scrollbar-thumb:hover {
+    background-color: #6b7280;
 }
 
 .main-content > *:first-child {
@@ -263,38 +284,37 @@ nav a:hover {
         inset 0 1px 0 rgb(255 255 255 / 2%);
 }
 
-/* Thanh tiêu đề code */
 .code-header {
     display: flex;
-    align-items: center;
-    justify-content: space-between;
-    gap: 12px;
+    flex-direction: column;      /* Xếp dọc: Tiêu đề ở trên, đoạn code ở dưới */
+    gap: 12px;                   /* Khoảng cách giữa tiêu đề và đoạn code */
 
     min-height: 42px;
-    padding: 10px 14px;
-
+    padding: 12px 14px;
     background-color: #1f2937;
     color: #cbd5e1;
-
     border-bottom: 1px solid var(--code-border);
-
     font-size: 12px;
     font-weight: 600;
     letter-spacing: 0.3px;
-
     overflow-wrap: anywhere;
 }
 
-/* Chấm trang trí kiểu editor nếu có phần tử phù hợp */
-.code-header::before {
-    content: "";
-    display: block;
-    width: 9px;
-    height: 9px;
-    flex-shrink: 0;
+/* Thanh tiêu đề chứa dấu chấm xanh và chữ HTML nằm ngang */
+.code-title {
+    display: flex;
+    align-items: center;
+    gap: 8px;                    /* Khoảng cách giữa dấu chấm xanh và chữ HTML */
+}
 
-    background-color: #60a5fa;
+/* Tạo dấu chấm xanh */
+.code-title .dot {
+    width: 10px;
+    height: 10px;
+    background-color: #3b82f6;   /* Màu xanh */
     border-radius: 50%;
+    display: inline-block;
+    flex-shrink: 0;
 }
 
 /* Khung chứa code */
@@ -320,7 +340,6 @@ nav a:hover {
     line-height: 1.8;
     tab-size: 4;
 
-    /* Giữ thụt đầu dòng và cho phép tự xuống dòng */
     white-space: pre-wrap;
     overflow-wrap: anywhere;
     word-break: normal;
