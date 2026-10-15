@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>CSS - Hướng dẫn toàn tập</title>
+    <title>CSS</title>
     <link rel="stylesheet" href="css.css">
 </head>
 <body>
@@ -17,28 +17,22 @@
     <hr>
 </header>
 <div class="middle-section">
-    <button id="open-sidebar-btn"
-        onclick="toggleSidebar()"
-        aria-label="Mở sidebar">☰</button>
+    <button id="open-sidebar-btn" onclick="toggleSidebar()" aria-label="Mở sidebar">☰</button>
 
 <aside class="sidebar">
-
     <div class="sidebar-header">
         <span>CSS TUTORIAL</span>
-        <button class="close-btn"
-                onclick="toggleSidebar()"
-                aria-label="Đóng sidebar">✕</button>
+        <button class="close-btn" onclick="toggleSidebar()" aria-label="Đóng sidebar">✕</button>
     </div>
 
     <div class="sidebar-items">
-
         <!-- NHÓM 1: CƠ BẢN -->
         <details class="sidebar-group" open>
             <summary>1. Cơ bản & Cú pháp</summary>
             <a href="#css-intro" onclick="showSection('css-intro')">Tổng quan về CSS</a>
             <a href="#css-methods" onclick="showSection('css-methods')">3 cách dùng CSS</a>
             <a href="#css-syntax" onclick="showSection('css-syntax')">Cú pháp & Selector</a>
-            <a href="#css-cascade" onclick="showSection('cascade-spec')">Cascade & Specificity</a>
+            <a href="#cascade-spec" onclick="showSection('cascade-spec')">Cascade & Specificity</a>
         </details>
 
         <!-- NHÓM 2: SELECTORS -->
@@ -61,10 +55,8 @@
         <!-- NHÓM 4: BỐ CỤC & DISPLAY -->
         <details class="sidebar-group">
             <summary>4. Bố cục & Display</summary>
-            <a href="#css-boxmodel" onclick="showSection('css-boxmodel')">Box Model (Khối hộp)</a>
+            <a href="#css-boxmodel" onclick="showSection('css-boxmodel')">Box Model (Mô hình hộp)</a>
             <a href="#css-display" onclick="showSection('css-display')">Thuộc tính Display</a>
-            <a href="#css-display-inline" onclick="showSection('css-display-inline')">display: inline (Hạn chế)</a>
-            <a href="#css-display-block" onclick="showSection('css-display-block')">display: block</a>
             <a href="#css-position" onclick="showSection('css-position')">Thuộc tính Position</a>
         </details>
 
@@ -96,7 +88,6 @@
             <a href="#css-variables" onclick="showSection('css-variables')">CSS Variables & Themes</a>
             <a href="#css-advanced" onclick="showSection('css-advanced')">Advanced CSS & @layer</a>
         </details>
-
     </div>
 </aside>
 
@@ -106,589 +97,741 @@
     <!-- 1. TỔNG QUAN -->
     <section id="css-intro" class="content-section">
         <h2>Tổng quan về CSS</h2>
-        <p><strong>Khái niệm:</strong> CSS (Cascading Style Sheets) là ngôn ngữ định kiểu dùng để thiết kế, trang trí và định dạng giao diện cho các tài liệu viết bằng HTML.</p>
-        <p><strong>Công dụng:</strong> Giúp tách biệt hoàn toàn phần cấu trúc nội dung (HTML) khỏi phần trình bày giao diện (màu sắc, bố cục, hiệu ứng), giúp mã nguồn dễ bảo trì và tái sử dụng.</p>
+        <p><strong>Khái niệm:</strong> CSS (Cascading Style Sheets) là ngôn ngữ định kiểu dùng để thiết kế giao diện web.</p>
         
-        <h3>Làm được gì & Không làm được gì:</h3>
-        <ul>
-            <li><strong>Làm được:</strong> Trang trí giao diện, tạo hiệu ứng chuyển động mượt mà, bố trí lưới linh hoạt (Flexbox/Grid), hỗ trợ hiển thị tốt trên mọi thiết bị (Responsive).</li>
-            <li><strong>Không làm được:</strong> Không xử lý logic lập trình, không tự tương tác dữ liệu động từ người dùng (cần JavaScript) và không tạo ra các thẻ nội dung thô (cần HTML).</li>
-        </ul>
-
-        <h3>Code mẫu cấu trúc CSS:</h3>
+        <h3>Code mẫu (External Approach):</h3>
         <div class="code">
             <div class="code-header">
-                <div class="code-title"><span class="dot"></span><span>CSS</span></div>
-                <pre><code>/* Cấu trúc quy tắc CSS */
-selector {
-    property: value;
-}</code></pre>
+                <div class="code-title"><span class="dot"></span><span>index.html (Liên kết file style.css bên ngoài)</span></div>
+                <pre><code>&lt;!DOCTYPE html&gt;
+&lt;html lang="vi"&gt;
+&lt;head&gt;
+    &lt;link rel="stylesheet" href="style.css"&gt;
+&lt;/head&gt;
+&lt;body&gt;
+    &lt;div class="box"&gt;Nội dung mẫu&lt;/div&gt;
+&lt;/body&gt;
+&lt;/html&gt;</code></pre>
             </div>
         </div>
-        <h3>Output:</h3>
-        <div class="out-put"><p><em>(Quy tắc định kiểu giao diện áp dụng lên phần tử)</em></p></div>
-    </section>
-
-    <!-- 2. CÁCH SỬ DỤNG CSS -->
-    <section id="css-methods" class="content-section" hidden>
-        <h2>3 cách sử dụng CSS</h2>
-        <p><strong>Khái niệm:</strong> Các phương pháp tích hợp mã CSS vào trang HTML.</p>
-        <p><strong>Công dụng:</strong> Cho phép áp dụng kiểu dáng linh hoạt từ cục bộ đến toàn cục.</p>
-        <ul>
-            <li><strong>Inline CSS:</strong> Viết trực tiếp vào thuộc tính <code>style</code> của thẻ HTML.</li>
-            <li><strong>Internal CSS:</strong> Viết bên trong thẻ <code>&lt;style&gt;</code> tại phần <code>&lt;head&gt;</code> của trang.</li>
-            <li><strong>External CSS:</strong> Viết trong file <code>.css</code> riêng biệt và liên kết vào HTML qua thẻ <code>&lt;link&gt;</code>.</li>
-        </ul>
-        <h3>Code:</h3>
         <div class="code">
             <div class="code-header">
-                <div class="code-title"><span class="dot"></span><span>HTML / CSS</span></div>
-                <pre><code>&lt;!-- External CSS link --&gt;
-&lt;link rel="stylesheet" href="style.css"&gt;
-
-&lt;!-- Internal CSS --&gt;
-&lt;style&gt;
-    body { background-color: #000; }
-&lt;/style&gt;
-
-&lt;!-- Inline CSS --&gt;
-&lt;p style="color: cyan;"&gt;Nội dung&lt;/p&gt;</code></pre>
-            </div>
-        </div>
-        <h3>Output:</h3>
-        <div class="out-put"><p style="color: cyan;">Nội dung hiển thị với inline CSS</p></div>
-    </section>
-
-    <!-- 3. CÚ PHÁP & SELECTOR -->
-    <section id="css-syntax" class="content-section" hidden>
-        <h2>Cú pháp & Selector cơ bản</h2>
-        <p><strong>Khái niệm:</strong> Cấu trúc định danh phần tử để áp dụng các thuộc tính định kiểu.</p>
-        <p><strong>Công dụng:</strong> Chỉ định chính xác đối tượng cần trang trí trên trang web.</p>
-        <h3>Code:</h3>
-        <div class="code">
-            <div class="code-header">
-                <div class="code-title"><span class="dot"></span><span>CSS</span></div>
-                <pre><code>h1 {
-    color: #ff5722;
-    font-size: 24px;
-}</code></pre>
-            </div>
-        </div>
-        <h3>Output:</h3>
-        <div class="out-put"><h1 style="color: #ff5722; font-size: 24px;">Tiêu đề áp dụng Selector</h1></div>
-    </section>
-
-    <!-- 4. CASCADE & SPECIFICITY -->
-    <section id="cascade-spec" class="content-section" hidden>
-        <h2>Cascade, Inheritance & Specificity</h2>
-        <p><strong>Khái niệm:</strong> Quy tắc độ ưu tiên (Specificity), tính kế thừa (Inheritance) và thứ tự đè lớp (Cascade) trong CSS.</p>
-        <p><strong>Công dụng:</strong> Xác định chính xác thuộc tính nào sẽ được trình duyệt ưu tiên áp dụng khi có nhiều quy tắc xung đột.</p>
-        <ul>
-            <li><strong>Specificity (Độ ưu tiên):</strong> Inline (1000) > ID (#id = 100) > Class/Pseudo-class (.class = 10) > Element (tag = 1).</li>
-            <li><strong>Inheritance (Kế thừa):</strong> Một số thuộc tính văn bản (color, font-family) tự động truyền từ thẻ cha xuống thẻ con.</li>
-        </ul>
-        <h3>Code:</h3>
-        <div class="code">
-            <div class="code-header">
-                <div class="code-title"><span class="dot"></span><span>CSS</span></div>
-                <pre><code>p { color: white; }        /* Độ ưu tiên thấp */
-.special { color: yellow; } /* Độ ưu tiên trung bình */
-#main { color: cyan; }      /* Độ ưu tiên cao nhất */</code></pre>
-            </div>
-        </div>
-        <h3>Output:</h3>
-        <div class="out-put"><p id="main" class="special" style="color: cyan;">Đoạn văn này chịu chi phối bởi độ ưu tiên ID (#main)</p></div>
-    </section>
-
-    <!-- SELECTORS CHI TIẾT -->
-    <section id="sel-basic" class="content-section" hidden>
-        <h2>Selectors cơ bản</h2>
-        <p><strong>Khái niệm:</strong> Các bộ chọn theo tên thẻ, class, ID và bộ chọn vạn năng (*).</p>
-        <p><strong>Công dụng:</strong> Khoanh vùng đối tượng từ rộng đến hẹp.</p>
-        <h3>Code:</h3>
-        <div class="code">
-            <div class="code-header">
-                <div class="code-title"><span class="dot"></span><span>CSS</span></div>
-                <pre><code>* { box-sizing: border-box; }
-div { background: #111; padding: 10px; }
-.my-class { color: #00ffff; }
-#my-id { border: 1px solid #444; }</code></pre>
-            </div>
-        </div>
-        <h3>Output:</h3>
-        <div class="out-put">
-            <div id="my-id" style="background: #111; padding: 10px; border: 1px solid #444;">
-                <span class="my-class">Nội dung bên trong bộ chọn cơ bản</span>
-            </div>
-        </div>
-    </section>
-
-    <section id="sel-combinators" class="content-section" hidden>
-        <h2>Combinators (Bộ kết hợp Selector)</h2>
-        <p><strong>Khái niệm:</strong> Quan hệ giữa các selector (Descendant <code>A B</code>, Child <code>A > B</code>, Adjacent sibling <code>A + B</code>, General sibling <code>A ~ B</code>).</p>
-        <p><strong>Công dụng:</strong> Chọn phần tử dựa trên vị trí cấu trúc phân cấp của chúng.</p>
-        <h3>Code:</h3>
-        <div class="code">
-            <div class="code-header">
-                <div class="code-title"><span class="dot"></span><span>CSS</span></div>
-                <pre><code>/* Child selector */
-.parent > p {
-    color: #10b981;
-}</code></pre>
-            </div>
-        </div>
-        <h3>Output:</h3>
-        <div class="out-put">
-            <div class="parent">
-                <p style="color: #10b981;">Đoạn văn con trực tiếp (Child)</p>
-            </div>
-        </div>
-    </section>
-
-    <section id="sel-attributes" class="content-section" hidden>
-        <h2>Attribute Selectors</h2>
-        <p><strong>Khái niệm:</strong> Chọn phần tử dựa vào sự xuất hiện của thuộc tính HTML (ví dụ: <code>[disabled]</code>, <code>[type="text"]</code>).</p>
-        <p><strong>Công dụng:</strong> Định kiểu linh hoạt cho các trường input hoặc liên kết có thuộc tính đặc thù.</p>
-        <h3>Code:</h3>
-        <div class="code">
-            <div class="code-header">
-                <div class="code-title"><span class="dot"></span><span>CSS</span></div>
-                <pre><code>input[type="text"] {
-    background-color: #1e293b;
-    color: white;
-    padding: 5px;
-    border: 1px solid #475569;
-}</code></pre>
-            </div>
-        </div>
-        <h3>Output:</h3>
-        <div class="out-put">
-            <input type="text" value="Ô nhập liệu text" style="background-color: #1e293b; color: white; padding: 5px; border: 1px solid #475569;">
-        </div>
-    </section>
-
-    <section id="sel-pseudo-class" class="content-section" hidden>
-        <h2>Pseudo-classes</h2>
-        <p><strong>Khái niệm:</strong> Trạng thái đặc biệt của phần tử (như <code>:hover</code>, <code>:focus</code>, <code>:first-child</code>, <code>:nth-child()</code>).</p>
-        <p><strong>Công dụng:</strong> Thay đổi kiểu dáng khi người dùng tương tác hoặc theo vị trí con.</p>
-        <h3>Code:</h3>
-        <div class="code">
-            <div class="code-header">
-                <div class="code-title"><span class="dot"></span><span>CSS</span></div>
-                <pre><code>button:hover {
-    background-color: #00ffff;
-    color: black;
-}</code></pre>
-            </div>
-        </div>
-        <h3>Output:</h3>
-        <div class="out-put">
-            <button style="padding: 8px 16px; background: #334155; color: white; border: none; cursor: pointer;">Rơ chuột vào đây</button>
-        </div>
-    </section>
-
-    <section id="sel-pseudo-element" class="content-section" hidden>
-        <h2>Pseudo-elements</h2>
-        <p><strong>Khái niệm:</strong> Tạo hoặc định dạng một phần nhỏ của phần tử (như <code>::before</code>, <code>::after</code>, <code>::placeholder</code>, <code>::selection</code>).</p>
-        <p><strong>Công dụng:</strong> Trang trí, thêm icon hoặc định dạng ký tự đầu dòng mà không cần thêm thẻ HTML thừa.</p>
-        <h3>Code:</h3>
-        <div class="code">
-            <div class="code-header">
-                <div class="code-title"><span class="dot"></span><span>CSS</span></div>
-                <pre><code>p::first-letter {
-    font-size: 2em;
-    color: #f43f5e;
-}</code></pre>
-            </div>
-        </div>
-        <h3>Output:</h3>
-        <div class="out-put">
-            <p><span style="font-size: 2em; color: #f43f5e;">C</span>hữ cái đầu tiên được phóng to trang trí.</p>
-        </div>
-    </section>
-
-    <!-- MÀU SẮC & BACKGROUND -->
-    <section id="css-colors" class="content-section" hidden>
-        <h2>Màu sắc & Background</h2>
-        <p><strong>Khái niệm:</strong> Các hệ màu (HEX, RGB, HSL) và thuộc tính thiết lập hình nền, màu nền.</p>
-        <p><strong>Công dụng:</strong> Xây dựng giao diện sinh động, bắt mắt.</p>
-        <h3>Code:</h3>
-        <div class="code">
-            <div class="code-header">
-                <div class="code-title"><span class="dot"></span><span>CSS</span></div>
-                <pre><code>.box-bg {
-    background: linear-gradient(135deg, #3b82f6, #8b5cf6);
-    color: white;
-    padding: 20px;
+                <div class="code-title"><span class="dot"></span><span>style.css (File CSS riêng biệt)</span></div>
+                <pre><code>.box {
+    background: #1e293b;
+    color: #38bdf8;
+    padding: 15px;
     border-radius: 8px;
 }</code></pre>
             </div>
         </div>
         <h3>Output:</h3>
         <div class="out-put">
-            <div style="background: linear-gradient(135deg, #3b82f6, #8b5cf6); color: white; padding: 20px; border-radius: 8px;">Nền Gradient đẹp mắt</div>
+            <div style="background: #1e293b; color: #0284c7; padding: 15px; border-radius: 8px; font-weight: bold;">Nội dung mẫu áp dụng External CSS</div>
         </div>
     </section>
 
-    <!-- TYPOGRAPHY -->
-    <section id="css-typography" class="content-section" hidden>
-        <h2>Typography (Kiểu chữ)</h2>
-        <p><strong>Khái niệm:</strong> Các thuộc tính định dạng văn bản (font-family, font-size, line-height, text-align, text-shadow...).</p>
-        <p><strong>Công dụng:</strong> Đảm bảo tính dễ đọc và thẩm mỹ cho nội dung văn bản.</p>
-        <h3>Code:</h3>
+    <!-- 2. 3 CÁCH DÙNG CSS -->
+    <section id="css-methods" class="content-section" hidden>
+        <h2>3 cách sử dụng CSS</h2>
+        <p><strong>Lý thuyết:</strong> Gồm Inline (trong thẻ), Internal (trong thẻ &lt;style&gt;), và External (file .css riêng - Khuyên dùng).</p>
+        
+        <h3>Code mẫu:</h3>
         <div class="code">
             <div class="code-header">
-                <div class="code-title"><span class="dot"></span><span>CSS</span></div>
-                <pre><code>h3 {
-    font-family: 'Segoe UI', Tahoma, sans-serif;
-    letter-spacing: 1px;
-    text-transform: uppercase;
+                <div class="code-title"><span class="dot"></span><span>index.html</span></div>
+                <pre><code>&lt;link rel="stylesheet" href="style.css"&gt;
+&lt;p class="text-external"&gt;Đoạn văn dùng External CSS&lt;/p&gt;</code></pre>
+            </div>
+        </div>
+        <div class="code">
+            <div class="code-header">
+                <div class="code-title"><span class="dot"></span><span>style.css</span></div>
+                <pre><code>.text-external {
+    color: #06b6d4;
+    font-weight: bold;
+    font-size: 16px;
 }</code></pre>
             </div>
         </div>
         <h3>Output:</h3>
         <div class="out-put">
-            <h3 style="letter-spacing: 1px; text-transform: uppercase; color: #00ffff;">Văn bản định dạng typography</h3>
+            <p style="color: #0891b2; font-weight: bold; font-size: 16px; margin: 0;">Đoạn văn dùng External CSS</p>
         </div>
     </section>
 
-    <!-- BOX MODEL -->
+    <!-- 3. CÚ PHÁP & SELECTOR -->
+    <section id="css-syntax" class="content-section" hidden>
+        <h2>Cú pháp & Selector cơ bản</h2>
+        <p><strong>Lý thuyết:</strong> Cấu trúc gồm Selector và khối khai báo thuộc tính: giá trị.</p>
+        
+        <h3>Code mẫu:</h3>
+        <div class="code">
+            <div class="code-header">
+                <div class="code-title"><span class="dot"></span><span>index.html</span></div>
+                <pre><code>&lt;h3 class="title-demo"&gt;Tiêu đề Demo&lt;/h3&gt;</code></pre>
+            </div>
+        </div>
+        <div class="code">
+            <div class="code-header">
+                <div class="code-title"><span class="dot"></span><span>style.css</span></div>
+                <pre><code>.title-demo {
+    color: #7c3aed;
+    border-left: 4px solid #7c3aed;
+    padding-left: 8px;
+}</code></pre>
+            </div>
+        </div>
+        <h3>Output:</h3>
+        <div class="out-put">
+            <h3 style="color: #7c3aed; border-left: 4px solid #7c3aed; padding-left: 8px; margin: 0;">Tiêu đề Demo</h3>
+        </div>
+    </section>
+
+    <!-- 4. CASCADE & SPECIFICITY -->
+    <section id="cascade-spec" class="content-section" hidden>
+        <h2>Cascade, Inheritance & Specificity</h2>
+        <p><strong>Lý thuyết:</strong> Quy tắc độ ưu tiên khi đè lớp: Inline (1000) > ID (100) > Class (10) > Element (1).</p>
+        
+        <h3>Code mẫu:</h3>
+        <div class="code">
+            <div class="code-header">
+                <div class="code-title"><span class="dot"></span><span>index.html</span></div>
+                <pre><code>&lt;p id="text-id" class="text-cls"&gt;Văn bản kiểm tra độ ưu tiên&lt;/p&gt;</code></pre>
+            </div>
+        </div>
+        <div class="code">
+            <div class="code-header">
+                <div class="code-title"><span class="dot"></span><span>style.css</span></div>
+                <pre><code>p { color: gray; }
+.text-cls { color: green; }
+#text-id { color: #2563eb; } /* Thắng thế do ID cao điểm hơn */</code></pre>
+            </div>
+        </div>
+        <h3>Output:</h3>
+        <div class="out-put">
+            <p style="color: #2563eb; font-weight: bold; margin: 0;">Văn bản kiểm tra độ ưu tiên</p>
+        </div>
+    </section>
+
+    <!-- 5. SELECTORS CƠ BẢN -->
+    <section id="sel-basic" class="content-section" hidden>
+        <h2>Selectors cơ bản</h2>
+        <p><strong>Lý thuyết:</strong> Vạn năng (*), thẻ (tag), class (.class), ID (#id).</p>
+        
+        <h3>Code mẫu:</h3>
+        <div class="code">
+            <div class="code-header">
+                <div class="code-title"><span class="dot"></span><span>index.html</span></div>
+                <pre><code>&lt;div class="box-card"&gt;Hộp nội dung thẻ div&lt;/div&gt;</code></pre>
+            </div>
+        </div>
+        <div class="code">
+            <div class="code-header">
+                <div class="code-title"><span class="dot"></span><span>style.css</span></div>
+                <pre><code>.box-card {
+    background: #e2e8f0;
+    color: #1e293b;
+    padding: 12px;
+    border-radius: 8px;
+}</code></pre>
+            </div>
+        </div>
+        <h3>Output:</h3>
+        <div class="out-put">
+            <div style="background: #e2e8f0; color: #1e293b; padding: 12px; border-radius: 8px;">Hộp nội dung thẻ div</div>
+        </div>
+    </section>
+
+    <!-- 6. COMBINATORS -->
+    <section id="sel-combinators" class="content-section" hidden>
+        <h2>Combinators (Bộ kết hợp Selector)</h2>
+        <p><strong>Lý thuyết:</strong> Descendant (A B), Child (A > B), Adjacent (A + B), General (A ~ B).</p>
+        
+        <h3>Code mẫu:</h3>
+        <div class="code">
+            <div class="code-header">
+                <div class="code-title"><span class="dot"></span><span>index.html</span></div>
+                <pre><code>&lt;div class="parent-box"&gt;
+    &lt;p&gt;Đoạn văn con trực tiếp&lt;/p&gt;
+&lt;/div&gt;</code></pre>
+            </div>
+        </div>
+        <div class="code">
+            <div class="code-header">
+                <div class="code-title"><span class="dot"></span><span>style.css</span></div>
+                <pre><code>.parent-box > p {
+    color: #dc2626;
+    font-weight: bold;
+}</code></pre>
+            </div>
+        </div>
+        <h3>Output:</h3>
+        <div class="out-put">
+            <div style="background: #f1f5f9; padding: 10px;">
+                <p style="color: #dc2626; font-weight: bold; margin: 0;">Đoạn văn con trực tiếp</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- 7. ATTRIBUTE SELECTORS -->
+    <section id="sel-attributes" class="content-section" hidden>
+        <h2>Attribute Selectors</h2>
+        <p><strong>Lý thuyết:</strong> Chọn phần tử theo thuộc tính HTML: <code>[attr]</code>, <code>[attr="val"]</code>, <code>[attr^="val"]</code>.</p>
+        
+        <h3>Code mẫu:</h3>
+        <div class="code">
+            <div class="code-header">
+                <div class="code-title"><span class="dot"></span><span>index.html</span></div>
+                <pre><code>&lt;input type="text" value="Ô input dạng text"&gt;</code></pre>
+            </div>
+        </div>
+        <div class="code">
+            <div class="code-header">
+                <div class="code-title"><span class="dot"></span><span>style.css</span></div>
+                <pre><code>input[type="text"] {
+    border: 2px solid #0284c7;
+    padding: 6px 12px;
+    border-radius: 6px;
+}</code></pre>
+            </div>
+        </div>
+        <h3>Output:</h3>
+        <div class="out-put">
+            <input type="text" value="Ô input dạng text" style="border: 2px solid #0284c7; padding: 6px 12px; border-radius: 6px; outline: none;">
+        </div>
+    </section>
+
+    <!-- 8. PSEUDO-CLASSES -->
+    <section id="sel-pseudo-class" class="content-section" hidden>
+        <h2>Pseudo-classes</h2>
+        <p><strong>Lý thuyết:</strong> Trạng thái phần tử như <code>:hover</code>, <code>:focus</code>, <code>:active</code>, <code>:nth-child()</code>.</p>
+        
+        <h3>Code mẫu:</h3>
+        <div class="code">
+            <div class="code-header">
+                <div class="code-title"><span class="dot"></span><span>index.html</span></div>
+                <pre><code>&lt;button class="btn-state"&gt;Rê chuột vào tôi&lt;/button&gt;</code></pre>
+            </div>
+        </div>
+        <div class="code">
+            <div class="code-header">
+                <div class="code-title"><span class="dot"></span><span>style.css</span></div>
+                <pre><code>.btn-state {
+    padding: 10px 20px;
+    background: #334155;
+    color: white;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+}
+.btn-state:hover {
+    background: #7c3aed;
+}</code></pre>
+            </div>
+        </div>
+        <h3>Output:</h3>
+        <div class="out-put">
+            <button style="padding: 10px 20px; background: #334155; color: white; border: none; border-radius: 6px; cursor: pointer;" onmouseover="this.style.background='#7c3aed'" onmouseout="this.style.background='#334155'">Rê chuột vào tôi</button>
+        </div>
+    </section>
+
+    <!-- 9. PSEUDO-ELEMENTS -->
+    <section id="sel-pseudo-element" class="content-section" hidden>
+        <h2>Pseudo-elements</h2>
+        <p><strong>Lý thuyết:</strong> Tạo thành phần ảo qua <code>::before</code>, <code>::after</code>, <code>::first-letter</code>.</p>
+        
+        <h3>Code mẫu:</h3>
+        <div class="code">
+            <div class="code-header">
+                <div class="code-title"><span class="dot"></span><span>index.html</span></div>
+                <pre><code>&lt;p class="note-text"&gt;Nội dung thông báo quan trọng.&lt;/p&gt;</code></pre>
+            </div>
+        </div>
+        <div class="code">
+            <div class="code-header">
+                <div class="code-title"><span class="dot"></span><span>style.css</span></div>
+                <pre><code>.note-text::before {
+    content: "Lưu ý: ";
+    color: #eab308;
+    font-weight: bold;
+}</code></pre>
+            </div>
+        </div>
+        <h3>Output:</h3>
+        <div class="out-put">
+            <p style="margin: 0;"><span style="color: #eab308; font-weight: bold;">Lưu ý: </span>Nội dung thông báo quan trọng.</p>
+        </div>
+    </section>
+
+    <!-- 10. MÀU SẮC & BACKGROUND -->
+    <section id="css-colors" class="content-section" hidden>
+        <h2>Màu sắc & Background (Full thuộc tính & giá trị)</h2>
+        <p><strong>Thuộc tính & Giá trị:</strong> color, background-color, background-image (linear-gradient), background-size (cover/contain), background-repeat (no-repeat), background-position (center).</p>
+        
+        <h3>Code mẫu:</h3>
+        <div class="code">
+            <div class="code-header">
+                <div class="code-title"><span class="dot"></span><span>index.html</span></div>
+                <pre><code>&lt;div class="bg-demo"&gt;Nền Gradient & Background&lt;/div&gt;</code></pre>
+            </div>
+        </div>
+        <div class="code">
+            <div class="code-header">
+                <div class="code-title"><span class="dot"></span><span>style.css</span></div>
+                <pre><code>.bg-demo {
+    background: linear-gradient(135deg, #3b82f6, #9333ea);
+    background-repeat: no-repeat;
+    background-size: cover;
+    color: white;
+    padding: 20px;
+    border-radius: 10px;
+    text-align: center;
+}</code></pre>
+            </div>
+        </div>
+        <h3>Output:</h3>
+        <div class="out-put">
+            <div style="background: linear-gradient(135deg, #3b82f6, #9333ea); background-repeat: no-repeat; background-size: cover; color: white; padding: 20px; border-radius: 10px; text-align: center; font-weight: bold;">Nền Gradient & Background</div>
+        </div>
+    </section>
+
+    <!-- 11. TYPOGRAPHY -->
+    <section id="css-typography" class="content-section" hidden>
+        <h2>Typography (Kiểu chữ - Full thuộc tính & giá trị)</h2>
+        <p><strong>Thuộc tính & Giá trị:</strong> font-family, font-size (px/rem), font-weight (100-900/bold), font-style (italic), text-transform (uppercase), letter-spacing.</p>
+        
+        <h3>Code mẫu:</h3>
+        <div class="code">
+            <div class="code-header">
+                <div class="code-title"><span class="dot"></span><span>index.html</span></div>
+                <pre><code>&lt;p class="typo-demo"&gt;Văn bản định dạng Typography&lt;/p&gt;</code></pre>
+            </div>
+        </div>
+        <div class="code">
+            <div class="code-header">
+                <div class="code-title"><span class="dot"></span><span>style.css</span></div>
+                <pre><code>.typo-demo {
+    font-family: Arial, sans-serif;
+    font-size: 18px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    color: #4f46e5;
+}</code></pre>
+            </div>
+        </div>
+        <h3>Output:</h3>
+        <div class="out-put">
+            <p style="font-family: Arial, sans-serif; font-size: 18px; font-weight: 700; text-transform: uppercase; letter-spacing: 2px; color: #4f46e5; margin: 0;">Văn bản định dạng Typography</p>
+        </div>
+    </section>
+
+    <!-- 12. BOX MODEL -->
     <section id="css-boxmodel" class="content-section" hidden>
         <h2>Box Model (Mô hình hộp)</h2>
-        <p><strong>Khái niệm:</strong> Quy tắc cấu trúc mọi phần tử thành một chiếc hộp gồm: Content, Padding, Border, Margin.</p>
-        <p><strong>Công dụng:</strong> Quản lý không gian, khoảng cách và kích thước thực tế của phần tử.</p>
-        <h3>Code:</h3>
+        <p><strong>Lý thuyết:</strong> Content, Padding, Border, Margin. Luôn đặt <code>box-sizing: border-box</code>.</p>
+        
+        <h3>Code mẫu:</h3>
         <div class="code">
             <div class="code-header">
-                <div class="code-title"><span class="dot"></span><span>CSS</span></div>
-                <pre><code>.box {
+                <div class="code-title"><span class="dot"></span><span>index.html</span></div>
+                <pre><code>&lt;div class="box-model-demo"&gt;Hộp chuẩn Box Model&lt;/div&gt;</code></pre>
+            </div>
+        </div>
+        <div class="code">
+            <div class="code-header">
+                <div class="code-title"><span class="dot"></span><span>style.css</span></div>
+                <pre><code>.box-model-demo {
     box-sizing: border-box;
-    width: 250px;
+    width: 100%;
     padding: 20px;
-    border: 3px solid #00ffff;
-    margin: 15px 0;
-    background-color: #1e293b;
+    border: 3px solid #06b6d4;
+    margin: 10px 0;
+    background: #0f172a;
+    color: #fff;
+    border-radius: 6px;
 }</code></pre>
             </div>
         </div>
         <h3>Output:</h3>
         <div class="out-put">
-            <div style="box-sizing: border-box; width: 250px; padding: 20px; border: 3px solid #00ffff; margin: 15px 0; background-color: #1e293b;">Hộp Box Model chuẩn</div>
+            <div style="box-sizing: border-box; width: 100%; padding: 20px; border: 3px solid #06b6d4; margin: 10px 0; background: #0f172a; color: #fff; border-radius: 6px;">Hộp chuẩn Box Model</div>
         </div>
     </section>
 
-    <!-- DISPLAY -->
+    <!-- 13. DISPLAY -->
     <section id="css-display" class="content-section" hidden>
-        <h2>Thuộc tính Display</h2>
-        <p><strong>Khái niệm:</strong> Quyết định cách thức hiển thị cơ bản của phần tử trên trang (block, inline, inline-block, flex, grid, none).</p>
-        <p><strong>Công dụng:</strong> Thay đổi hành vi dàn trang của các thẻ HTML.</p>
-        <h3>Code:</h3>
+        <h2>Thuộc tính Display (Full giá trị)</h2>
+        <p><strong>Giá trị:</strong> block, inline, inline-block, flex, grid, none.</p>
+        
+        <h3>Code mẫu:</h3>
         <div class="code">
             <div class="code-header">
-                <div class="code-title"><span class="dot"></span><span>CSS</span></div>
-                <pre><code>.d-inline-block {
+                <div class="code-title"><span class="dot"></span><span>index.html</span></div>
+                <pre><code>&lt;div class="item-inline-block"&gt;Item 1&lt;/div&gt;
+&lt;div class="item-inline-block"&gt;Item 2&lt;/div&gt;</code></pre>
+            </div>
+        </div>
+        <div class="code">
+            <div class="code-header">
+                <div class="code-title"><span class="dot"></span><span>style.css</span></div>
+                <pre><code>.item-inline-block {
     display: inline-block;
     width: 120px;
     height: 40px;
-    background: #334155;
+    background: #475569;
+    color: white;
     text-align: center;
     line-height: 40px;
+    margin-right: 8px;
+    border-radius: 4px;
 }</code></pre>
             </div>
         </div>
         <h3>Output:</h3>
         <div class="out-put">
-            <div style="display: inline-block; width: 120px; height: 40px; background: #334155; text-align: center; line-height: 40px; margin-right: 5px;">Item 1</div>
-            <div style="display: inline-block; width: 120px; height: 40px; background: #334155; text-align: center; line-height: 40px;">Item 2</div>
+            <div style="display: inline-block; width: 120px; height: 40px; background: #475569; color: white; text-align: center; line-height: 40px; margin-right: 8px; border-radius: 4px;">Item 1</div>
+            <div style="display: inline-block; width: 120px; height: 40px; background: #475569; color: white; text-align: center; line-height: 40px; border-radius: 4px;">Item 2</div>
         </div>
     </section>
 
-    <!-- DISPLAY INLINE - HẠN CHẾ -->
-    <section id="css-display-inline" class="content-section" hidden>
-        <h2>Thuộc tính display: inline (Hạn chế)</h2>
-        <p><strong>Khái niệm:</strong> Hiển thị nối tiếp trên cùng một dòng, chỉ chiếm không gian bằng nội dung bên trong.</p>
-        <p><strong>Làm được & Không làm được:</strong></p>
-        <ul>
-            <li><strong>Làm được:</strong> Đổi màu chữ, màu nền, padding/margin ngang.</li>
-            <li><strong>Không làm được: Không chỉnh được width và height</strong>, margin dọc bị vô hiệu hóa.</li>
-        </ul>
-        <h3>Code minh họa (Chỉnh width thất bại):</h3>
-        <div class="code">
-            <div class="code-header">
-                <div class="code-title"><span class="dot"></span><span>CSS</span></div>
-                <pre><code>span.bad-inline {
-    display: inline;
-    width: 400px;   /* Bị vô tác dụng! */
-    height: 100px;  /* Bị vô tác dụng! */
-    background: #ef4444;
-}</code></pre>
-            </div>
-        </div>
-        <h3>Output:</h3>
-        <div class="out-put">
-            <p>Đoạn văn chứa <span style="display: inline; width: 400px; height: 100px; background: #ef4444; color: white;">thẻ span inline không thay đổi kích thước</span> khi gán width/height.</p>
-        </div>
-    </section>
-
-    <!-- DISPLAY BLOCK -->
-    <section id="css-display-block" class="content-section" hidden>
-        <h2>Thuộc tính display: block</h2>
-        <p><strong>Khái niệm:</strong> Chiếm toàn bộ chiều rộng ngang có sẵn và luôn bắt đầu trên dòng mới.</p>
-        <h3>Code:</h3>
-        <div class="code">
-            <div class="code-header">
-                <div class="code-title"><span class="dot"></span><span>CSS</span></div>
-                <pre><code>div.block-box {
-    display: block;
-    width: 200px;
-    height: 50px;
-    background: #10b981;
-    color: white;
-}</code></pre>
-            </div>
-        </div>
-        <h3>Output:</h3>
-        <div class="out-put">
-            <div style="display: block; width: 200px; height: 50px; background: #10b981; color: white; text-align: center; line-height: 50px;">Khối Block chuẩn</div>
-        </div>
-    </section>
-
-    <!-- POSITION -->
+    <!-- 14. POSITION -->
     <section id="css-position" class="content-section" hidden>
-        <h2>Thuộc tính Position</h2>
-        <p><strong>Khái niệm:</strong> Định vị phần tử với các giá trị <code>static</code>, <code>relative</code>, <code>absolute</code>, <code>fixed</code>, <code>sticky</code>.</p>
-        <p><strong>Công dụng:</strong> Cho phép bứt phá khỏi dòng chảy tài liệu thông thường để ghim hoặc chồng lớp.</p>
-        <h3>Code:</h3>
+        <h2>Thuộc tính Position (Full giá trị)</h2>
+        <p><strong>Giá trị:</strong> static, relative, absolute, fixed, sticky.</p>
+        
+        <h3>Code mẫu:</h3>
         <div class="code">
             <div class="code-header">
-                <div class="code-title"><span class="dot"></span><span>CSS</span></div>
-                <pre><code>.rel-box {
+                <div class="code-title"><span class="dot"></span><span>index.html</span></div>
+                <pre><code>&lt;div class="pos-relative"&gt;Khối Relative dịch chuyển&lt;/div&gt;</code></pre>
+            </div>
+        </div>
+        <div class="code">
+            <div class="code-header">
+                <div class="code-title"><span class="dot"></span><span>style.css</span></div>
+                <pre><code>.pos-relative {
     position: relative;
-    top: 10px;
+    top: 5px;
     left: 20px;
     background: #334155;
+    color: #fff;
     padding: 10px;
+    width: 240px;
+    border-radius: 4px;
 }</code></pre>
             </div>
         </div>
         <h3>Output:</h3>
         <div class="out-put">
-            <div style="position: relative; top: 10px; left: 20px; background: #334155; padding: 10px; width: 200px;">Khối Relative dịch chuyển</div>
+            <div style="position: relative; top: 5px; left: 20px; background: #334155; color: #fff; padding: 10px; width: 240px; border-radius: 4px;">Khối Relative dịch chuyển</div>
         </div>
     </section>
 
-    <!-- FLEXBOX -->
+    <!-- 15. FLEXBOX -->
     <section id="css-flexbox" class="content-section" hidden>
         <h2>Flexbox Layout</h2>
-        <p><strong>Khái niệm:</strong> Mô hình bố cục một chiều giúp căn chỉnh phần tử con linh hoạt theo hàng hoặc cột.</p>
-        <p><strong>Công dụng:</strong> Tạo navbar, canh giữa tuyệt đối, chia khoảng cách tự động cực nhanh.</p>
-        <h3>Code:</h3>
+        <p><strong>Lý thuyết:</strong> display: flex, justify-content, align-items, gap.</p>
+        
+        <h3>Code mẫu:</h3>
         <div class="code">
             <div class="code-header">
-                <div class="code-title"><span class="dot"></span><span>CSS</span></div>
-                <pre><code>.flex-container {
+                <div class="code-title"><span class="dot"></span><span>index.html</span></div>
+                <pre><code>&lt;div class="flex-box"&gt;
+    &lt;div class="f-item"&gt;Item 1&lt;/div&gt;
+    &lt;div class="f-item"&gt;Item 2&lt;/div&gt;
+    &lt;div class="f-item"&gt;Item 3&lt;/div&gt;
+&lt;/div&gt;</code></pre>
+            </div>
+        </div>
+        <div class="code">
+            <div class="code-header">
+                <div class="code-title"><span class="dot"></span><span>style.css</span></div>
+                <pre><code>.flex-box {
     display: flex;
     justify-content: space-between;
-    background: #111827;
+    align-items: center;
+    background: #0f172a;
     padding: 15px;
+    border-radius: 8px;
 }
-.flex-item {
+.f-item {
     background: #3b82f6;
-    padding: 10px 20px;
+    color: white;
+    padding: 10px 15px;
+    border-radius: 4px;
 }</code></pre>
             </div>
         </div>
         <h3>Output:</h3>
         <div class="out-put">
-            <div style="display: flex; justify-content: space-between; background: #111827; padding: 15px;">
-                <div style="background: #3b82f6; padding: 10px 15px;">Item 1</div>
-                <div style="background: #3b82f6; padding: 10px 15px;">Item 2</div>
-                <div style="background: #3b82f6; padding: 10px 15px;">Item 3</div>
+            <div style="display: flex; justify-content: space-between; align-items: center; background: #0f172a; padding: 15px; border-radius: 8px;">
+                <div style="background: #3b82f6; color: white; padding: 10px 15px; border-radius: 4px;">Item 1</div>
+                <div style="background: #3b82f6; color: white; padding: 10px 15px; border-radius: 4px;">Item 2</div>
+                <div style="background: #3b82f6; color: white; padding: 10px 15px; border-radius: 4px;">Item 3</div>
             </div>
         </div>
     </section>
 
-    <!-- CSS GRID -->
+    <!-- 16. CSS GRID -->
     <section id="css-grid" class="content-section" hidden>
         <h2>CSS Grid Layout</h2>
-        <p><strong>Khái niệm:</strong> Mô hình bố cục hai chiều (hàng và cột) mạnh mẽ nhất trong CSS.</p>
-        <p><strong>Công dụng:</strong> Xây dựng cấu trúc trang phức tạp, dashboard, gallery ảnh.</p>
-        <h3>Code:</h3>
+        <p><strong>Lý thuyết:</strong> display: grid, grid-template-columns, gap.</p>
+        
+        <h3>Code mẫu:</h3>
         <div class="code">
             <div class="code-header">
-                <div class="code-title"><span class="dot"></span><span>CSS</span></div>
-                <pre><code>.grid-container {
+                <div class="code-title"><span class="dot"></span><span>index.html</span></div>
+                <pre><code>&lt;div class="grid-box"&gt;
+    &lt;div class="g-item"&gt;1&lt;/div&gt;
+    &lt;div class="g-item"&gt;2&lt;/div&gt;
+    &lt;div class="g-item"&gt;3&lt;/div&gt;
+&lt;/div&gt;</code></pre>
+            </div>
+        </div>
+        <div class="code">
+            <div class="code-header">
+                <div class="code-title"><span class="dot"></span><span>style.css</span></div>
+                <pre><code>.grid-box {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
     gap: 10px;
 }
-.grid-item {
+.g-item {
     background: #8b5cf6;
+    color: white;
     padding: 15px;
     text-align: center;
+    border-radius: 6px;
 }</code></pre>
             </div>
         </div>
         <h3>Output:</h3>
         <div class="out-put">
             <div style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 10px;">
-                <div style="background: #8b5cf6; padding: 15px; text-align: center;">1</div>
-                <div style="background: #8b5cf6; padding: 15px; text-align: center;">2</div>
-                <div style="background: #8b5cf6; padding: 15px; text-align: center;">3</div>
+                <div style="background: #8b5cf6; color: white; padding: 15px; text-align: center; border-radius: 6px;">1</div>
+                <div style="background: #8b5cf6; color: white; padding: 15px; text-align: center; border-radius: 6px;">2</div>
+                <div style="background: #8b5cf6; color: white; padding: 15px; text-align: center; border-radius: 6px;">3</div>
             </div>
         </div>
     </section>
 
-    <!-- UNITS -->
+    <!-- 17. UNITS -->
     <section id="css-units" class="content-section" hidden>
         <h2>Đơn vị đo lường trong CSS</h2>
-        <p><strong>Khái niệm:</strong> Phân loại thành đơn vị tuyệt đối (<code>px</code>) và tương đối (<code>%</code>, <code>em</code>, <code>rem</code>, <code>vw</code>, <code>vh</code>).</p>
-        <p><strong>Công dụng:</strong> Giúp giao diện co giãn linh hoạt theo kích thước màn hình.</p>
-        <h3>Code:</h3>
+        <p><strong>Lý thuyết:</strong> px, %, em, rem, vw, vh.</p>
+        
+        <h3>Code mẫu:</h3>
         <div class="code">
             <div class="code-header">
-                <div class="code-title"><span class="dot"></span><span>CSS</span></div>
-                <pre><code>.box-rem {
+                <div class="code-title"><span class="dot"></span><span>index.html</span></div>
+                <pre><code>&lt;div class="unit-demo"&gt;Sử dụng đơn vị rem và %&lt;/div&gt;</code></pre>
+            </div>
+        </div>
+        <div class="code">
+            <div class="code-header">
+                <div class="code-title"><span class="dot"></span><span>style.css</span></div>
+                <pre><code>.unit-demo {
     font-size: 1.2rem;
-    width: 50%;
+    width: 60%;
     background: #334155;
-    padding: 10px;
+    color: #fff;
+    padding: 12px;
+    border-radius: 6px;
 }</code></pre>
             </div>
         </div>
         <h3>Output:</h3>
         <div class="out-put">
-            <div style="font-size: 1.2rem; width: 50%; background: #334155; padding: 10px;">Sử dụng đơn vị tương đối rem và %</div>
+            <div style="font-size: 1.2rem; width: 60%; background: #334155; color: #fff; padding: 12px; border-radius: 6px;">Sử dụng đơn vị rem và %</div>
         </div>
     </section>
 
-    <!-- FUNCTIONS -->
+    <!-- 18. FUNCTIONS -->
     <section id="css-functions" class="content-section" hidden>
         <h2>CSS Functions (Hàm CSS)</h2>
-        <p><strong>Khái niệm:</strong> Các hàm toán học và xử lý giá trị như <code>calc()</code>, <code>min()</code>, <code>max()</code>, <code>clamp()</code>, <code>var()</code>.</p>
-        <p><strong>Công dụng:</strong> Tự động tính toán kích thước trực tiếp trong bảng mã CSS.</p>
-        <h3>Code:</h3>
+        <p><strong>Lý thuyết:</strong> calc(), min(), max(), clamp(), var().</p>
+        
+        <h3>Code mẫu:</h3>
         <div class="code">
             <div class="code-header">
-                <div class="code-title"><span class="dot"></span><span>CSS</span></div>
-                <pre><code>.calc-box {
-    width: calc(100% - 50px);
+                <div class="code-title"><span class="dot"></span><span>index.html</span></div>
+                <pre><code>&lt;div class="calc-demo"&gt;Hộp sử dụng hàm calc()&lt;/div&gt;</code></pre>
+            </div>
+        </div>
+        <div class="code">
+            <div class="code-header">
+                <div class="code-title"><span class="dot"></span><span>style.css</span></div>
+                <pre><code>.calc-demo {
+    width: calc(100% - 40px);
     background: #0284c7;
-    padding: 10px;
+    color: white;
+    padding: 12px;
+    border-radius: 6px;
 }</code></pre>
             </div>
         </div>
         <h3>Output:</h3>
         <div class="out-put">
-            <div style="width: calc(100% - 50px); background: #0284c7; padding: 10px;">Hộp sử dụng hàm calc()</div>
+            <div style="width: calc(100% - 40px); background: #0284c7; color: white; padding: 12px; border-radius: 6px;">Hộp sử dụng hàm calc()</div>
         </div>
     </section>
 
-    <!-- RESPONSIVE -->
+    <!-- 19. RESPONSIVE -->
     <section id="css-responsive" class="content-section" hidden>
         <h2>Responsive Design & Media Queries</h2>
-        <p><strong>Khái niệm:</strong> Kỹ thuật điều chỉnh giao diện thích ứng với mọi kích thước thiết bị thông qua <code>@media (max-width: ...)</code>.</p>
-        <h3>Code:</h3>
+        <p><strong>Lý thuyết:</strong> @media (max-width: ...).</p>
+        
+        <h3>Code mẫu:</h3>
         <div class="code">
             <div class="code-header">
-                <div class="code-title"><span class="dot"></span><span>CSS</span></div>
+                <div class="code-title"><span class="dot"></span><span>index.html</span></div>
+                <pre><code>&lt;p&gt;Nội dung tự thích ứng thiết bị&lt;/p&gt;</code></pre>
+            </div>
+        </div>
+        <div class="code">
+            <div class="code-header">
+                <div class="code-title"><span class="dot"></span><span>style.css</span></div>
                 <pre><code>@media (max-width: 768px) {
-    body {
-        background-color: #111;
-    }
+    body { font-size: 14px; }
 }</code></pre>
             </div>
         </div>
         <h3>Output:</h3>
-        <div class="out-put"><p><em>(Giao diện tự động thay đổi theo kích thước màn hình người xem)</em></p></div>
+        <div class="out-put"><p><em>(Giao diện tự động thay đổi theo kích thước màn hình)</em></p></div>
     </section>
 
-    <!-- TRANSITIONS & TRANSFORMS -->
+    <!-- 20. TRANSITIONS & TRANSFORMS -->
     <section id="css-transition" class="content-section" hidden>
         <h2>Transitions & Transforms</h2>
-        <p><strong>Khái niệm:</strong> Tạo hiệu ứng chuyển động mượt mà (transition) và biến đổi hình học 2D/3D (transform).</p>
-        <h3>Code:</h3>
+        <p><strong>Lý thuyết:</strong> transition kết hợp transform: scale() | rotate().</p>
+        
+        <h3>Code mẫu:</h3>
         <div class="code">
             <div class="code-header">
-                <div class="code-title"><span class="dot"></span><span>CSS</span></div>
-                <pre><code>.btn-anim {
+                <div class="code-title"><span class="dot"></span><span>index.html</span></div>
+                <pre><code>&lt;button class="trans-btn"&gt;Rê chuột phóng to&lt;/button&gt;</code></pre>
+            </div>
+        </div>
+        <div class="code">
+            <div class="code-header">
+                <div class="code-title"><span class="dot"></span><span>style.css</span></div>
+                <pre><code>.trans-btn {
     transition: transform 0.3s ease, background-color 0.3s;
+    background: #334155;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
 }
-.btn-anim:hover {
-    transform: scale(1.05);
-    background-color: #00ffff;
+.trans-btn:hover {
+    transform: scale(1.08);
+    background: #06b6d4;
     color: black;
 }</code></pre>
             </div>
         </div>
         <h3>Output:</h3>
         <div class="out-put">
-            <button class="btn-anim" style="padding: 10px 20px; background: #334155; color: white; border: none; cursor: pointer; transition: transform 0.3s ease, background-color 0.3s;">Rơ chuột phóng to</button>
+            <button style="transition: transform 0.3s ease, background-color 0.3s; background: #334155; color: white; padding: 10px 20px; border: none; border-radius: 6px; cursor: pointer;" onmouseover="this.style.transform='scale(1.08)';this.style.background='#06b6d4';this.style.color='#000';" onmouseout="this.style.transform='scale(1)';this.style.background='#334155';this.style.color='#fff';">Rê chuột phóng to</button>
         </div>
     </section>
 
-    <!-- ANIMATION -->
+    <!-- 21. ANIMATION -->
     <section id="css-animation" class="content-section" hidden>
         <h2>CSS Animations & Keyframes</h2>
-        <p><strong>Khái niệm:</strong> Tạo hiệu ứng chuyển động phức tạp dựa trên các mốc thời gian <code>@keyframes</code>.</p>
-        <h3>Code:</h3>
+        <p><strong>Lý thuyết:</strong> @keyframes kết hợp animation.</p>
+        
+        <h3>Code mẫu:</h3>
         <div class="code">
             <div class="code-header">
-                <div class="code-title"><span class="dot"></span><span>CSS</span></div>
-                <pre><code>@keyframes pulse {
-    0% { opacity: 1; }
-    50% { opacity: 0.4; }
-    100% { opacity: 1; }
+                <div class="code-title"><span class="dot"></span><span>index.html</span></div>
+                <pre><code>&lt;div class="anim-dot"&gt;&lt;/div&gt;</code></pre>
+            </div>
+        </div>
+        <div class="code">
+            <div class="code-header">
+                <div class="code-title"><span class="dot"></span><span>style.css</span></div>
+                <pre><code>@keyframes bounce {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-10px); }
 }
-.spinner {
-    animation: pulse 1.5s infinite;
+.anim-dot {
+    width: 30px;
+    height: 30px;
+    background: #06b6d4;
+    border-radius: 50%;
+    animation: bounce 1s infinite ease-in-out;
 }</code></pre>
             </div>
         </div>
         <h3>Output:</h3>
         <div class="out-put">
-            <div style="width: 40px; height: 40px; background: #00ffff; border-radius: 50%; animation: pulse 1.5s infinite;"></div>
+            <div style="width: 30px; height: 30px; background: #06b6d4; border-radius: 50%; animation: bounce 1s infinite ease-in-out;"></div>
         </div>
     </section>
 
-    <!-- CSS VARIABLES -->
+    <!-- 22. CSS VARIABLES -->
     <section id="css-variables" class="content-section" hidden>
-        <h2>CSS Variables & Theme Customization</h2>
-        <p><strong>Khái niệm:</strong> Khai báo biến toàn cục trong <code>:root</code> và gọi lại bằng hàm <code>var(--ten-bien)</code>.</p>
-        <p><strong>Công dụng:</strong> Dễ dàng xây dựng giao diện Dark/Light mode linh hoạt.</p>
-        <h3>Code:</h3>
+        <h2>CSS Variables & Themes</h2>
+        <p><strong>Lý thuyết:</strong> :root { --name: value; } và var(--name).</p>
+        
+        <h3>Code mẫu:</h3>
         <div class="code">
             <div class="code-header">
-                <div class="code-title"><span class="dot"></span><span>CSS</span></div>
+                <div class="code-title"><span class="dot"></span><span>index.html</span></div>
+                <pre><code>&lt;p class="var-text"&gt;Văn bản dùng biến CSS toàn cục&lt;/p&gt;</code></pre>
+            </div>
+        </div>
+        <div class="code">
+            <div class="code-header">
+                <div class="code-title"><span class="dot"></span><span>style.css</span></div>
                 <pre><code>:root {
-    --main-color: #00ffff;
+    --accent-color: #a78bfa;
 }
-.custom-text {
-    color: var(--main-color);
+.var-text {
+    color: var(--accent-color);
+    font-weight: bold;
 }</code></pre>
             </div>
         </div>
         <h3>Output:</h3>
-        <div class="out-put"><p style="color: var(--accent);">Văn bản sử dụng biến CSS toàn cục</p></div>
+        <div class="out-put">
+            <p style="color: #a78bfa; font-weight: bold; margin: 0;">Văn bản dùng biến CSS toàn cục</p>
+        </div>
     </section>
 
-    <!-- ADVANCED CSS -->
+    <!-- 23. ADVANCED CSS -->
     <section id="css-advanced" class="content-section" hidden>
         <h2>Advanced CSS & @layer</h2>
-        <p><strong>Khái niệm:</strong> Các tính năng hiện đại như Cascade Layers (<code>@layer</code>), Logical properties (<code>margin-inline</code>), và Nested CSS.</p>
-        <h3>Code:</h3>
+        <p><strong>Lý thuyết:</strong> Cascade Layers (@layer) kiểm soát độ ưu tiên.</p>
+        
+        <h3>Code mẫu:</h3>
         <div class="code">
             <div class="code-header">
-                <div class="code-title"><span class="dot"></span><span>CSS</span></div>
-                <pre><code>@layer base, components;
-@layer components {
-    .card { background: #1e293b; padding: 15px; }
+                <div class="code-title"><span class="dot"></span><span>index.html</span></div>
+                <pre><code>&lt;div class="modern-card"&gt;Thẻ Card phong cách CSS hiện đại&lt;/div&gt;</code></pre>
+            </div>
+        </div>
+        <div class="code">
+            <div class="code-header">
+                <div class="code-title"><span class="dot"></span><span>style.css</span></div>
+                <pre><code>@layer components {
+    .modern-card {
+        background: #1e293b;
+        padding: 15px;
+        border-radius: 8px;
+        border: 1px solid #334155;
+        color: #fff;
+    }
 }</code></pre>
             </div>
         </div>
         <h3>Output:</h3>
         <div class="out-put">
-            <div style="background: #1e293b; padding: 15px; border-radius: 6px;">Thẻ Card áp dụng CSS hiện đại</div>
+            <div style="background: #1e293b; padding: 15px; border-radius: 8px; border: 1px solid #334155; color: #fff;">Thẻ Card phong cách CSS hiện đại</div>
         </div>
     </section>
 
@@ -696,49 +839,26 @@ div { background: #111; padding: 10px; }
 </div>
 
 <script>
-    // Hàm chuyển đổi nội dung hiển thị trong main content
     function showSection(sectionId) {
-        // 1. Ẩn tất cả các section
-        const sections = document.querySelectorAll('.content-section');
-        sections.forEach(section => {
-            section.hidden = true;
-        });
-
-        // 2. Tìm và hiển thị section được chọn
-        const targetSection = document.getElementById(sectionId);
-        if (targetSection) {
-            targetSection.hidden = false;
-        }
-
-        // 3. Tự động cuộn main content lên đầu trang khi đổi bài
-        const mainContent = document.querySelector('.main-content');
-        if (mainContent) {
-            mainContent.scrollTop = 0;
-        }
+        document.querySelectorAll('.content-section').forEach(sec => sec.hidden = true);
+        const target = document.getElementById(sectionId);
+        if (target) target.hidden = false;
+        const main = document.querySelector('.main-content');
+        if (main) main.scrollTop = 0;
     }
 
-    // Hàm đóng/mở Sidebar
     function toggleSidebar() {
-        const middleSection = document.querySelector('.middle-section');
-        if (middleSection) {
-            middleSection.classList.toggle('sidebar-closed');
-        }
+        document.querySelector('.middle-section').classList.toggle('sidebar-closed');
     }
 
-    // Hiển thị đúng section khi load lại trang hoặc điều hướng bằng URL Hash (#intro-xxx)
     window.addEventListener('DOMContentLoaded', () => {
         const hash = window.location.hash.substring(1);
-        if (hash && document.getElementById(hash)) {
-            showSection(hash);
-        }
+        if (hash && document.getElementById(hash)) showSection(hash);
     });
 
-    // Lắng nghe sự kiện thay đổi hash trên URL để cập nhật bài học liền mạch
     window.addEventListener('hashchange', () => {
         const hash = window.location.hash.substring(1);
-        if (hash && document.getElementById(hash)) {
-            showSection(hash);
-        }
+        if (hash && document.getElementById(hash)) showSection(hash);
     });
 </script>
 </body>
