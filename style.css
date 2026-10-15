@@ -1163,3 +1163,575 @@ nav a {
 }
 
 }
+
+
+
+
+/* ==================================================
+DOC PAGE
+================================================== */
+
+.doc-section {
+--doc-bg: #0b0b12;
+--doc-card: #141420;
+--doc-border: #29283b;
+--doc-text: #e5e7eb;
+--doc-muted: #9998ad;
+--doc-purple: #a78bfa;
+
+width: 100%;
+max-width: 1100px;
+margin: 0 auto;
+padding: 32px clamp(16px, 4vw, 40px);
+
+color: var(--doc-text);
+border: none;
+
+}
+
+/* HERO */
+
+.doc-hero {
+position: relative;
+overflow: hidden;
+
+padding: 36px;
+margin-bottom: 38px;
+
+background:
+    radial-gradient(
+        circle at 90% 10%,
+        rgba(118, 75, 162, 0.23),
+        transparent 45%
+    ),
+    linear-gradient(135deg, #171526, #101019);
+
+border: 1px solid var(--doc-border);
+border-radius: 20px;
+
+}
+
+.doc-eyebrow {
+display: inline-block;
+color: var(--doc-purple);
+
+font-size: 11px;
+font-weight: 800;
+letter-spacing: 3px;
+
+}
+
+.doc-hero h2 {
+margin: 12px 0;
+padding: 0;
+border: none;
+
+font-size: clamp(28px, 4vw, 42px);
+line-height: 1.3;
+letter-spacing: -1px;
+
+}
+
+.doc-hero h2 span {
+color: #a78bfa;
+background: linear-gradient(90deg, #818cf8, #c084fc);
+background-clip: text;
+-webkit-background-clip: text;
+-webkit-text-fill-color: transparent;
+}
+
+.doc-hero > p {
+max-width: 650px;
+color: #a6a5b8;
+
+font-size: 15px;
+line-height: 1.9;
+margin: 0;
+
+}
+
+.doc-hero-tags {
+display: flex;
+flex-wrap: wrap;
+gap: 9px;
+margin-top: 22px;
+}
+
+.doc-hero-tags span {
+padding: 6px 12px;
+
+color: #d4c8ff;
+background: rgba(118, 75, 162, 0.13);
+
+border: 1px solid #39334f;
+border-radius: 8px;
+
+font-size: 12px;
+font-weight: 700;
+
+}
+
+/* SECTION HEADINGS */
+
+.doc-heading {
+display: flex;
+align-items: center;
+justify-content: space-between;
+
+margin-bottom: 20px;
+
+}
+
+.doc-heading h2 {
+margin: 0 0 5px;
+padding: 0;
+border: none;
+
+font-size: 23px;
+
+}
+
+.doc-heading p {
+margin: 0;
+color: #77758e;
+font-size: 13px;
+}
+
+/* LANGUAGE CARDS */
+
+.doc-language-grid {
+display: grid;
+grid-template-columns: repeat(2, minmax(0, 1fr));
+gap: 16px;
+
+margin-bottom: 42px;
+
+}
+
+.doc-language-card {
+min-width: 0;
+
+display: flex;
+flex-direction: column;
+
+padding: 24px;
+
+background: linear-gradient(145deg, #171625, #111119);
+
+border: 1px solid var(--doc-border);
+border-radius: 16px;
+
+transition:
+    transform 0.25s,
+    border-color 0.25s;
+
+}
+
+.doc-card-top {
+display: flex;
+align-items: center;
+justify-content: space-between;
+gap: 10px;
+
+margin-bottom: 22px;
+
+}
+
+.doc-language-icon {
+width: 48px;
+height: 48px;
+flex-shrink: 0;
+
+display: grid;
+place-items: center;
+
+border-radius: 13px;
+
+font-size: 23px;
+font-weight: 800;
+font-family: monospace;
+
+}
+
+.html-icon {
+color: #ff9b70;
+background: rgba(228, 77, 38, 0.14);
+border: 1px solid rgba(228, 77, 38, 0.3);
+}
+
+.css-icon {
+color: #7db8ff;
+background: rgba(38, 120, 228, 0.14);
+border: 1px solid rgba(38, 120, 228, 0.3);
+}
+
+.js-icon {
+color: #f9df77;
+background: rgba(247, 223, 30, 0.12);
+border: 1px solid rgba(247, 223, 30, 0.3);
+}
+
+.doc-level {
+color: #77758e;
+font-size: 10px;
+font-weight: 700;
+letter-spacing: 1px;
+}
+
+.doc-language-card h3 {
+margin: 0 0 3px;
+font-size: 24px;
+}
+
+.doc-subtitle {
+margin: 0 0 15px;
+color: #8d8ba3;
+font-size: 12px;
+}
+
+.doc-description {
+margin: 0 0 20px;
+
+color: #b0afc0;
+font-size: 13px;
+line-height: 1.9;
+
+}
+
+.doc-topics {
+display: flex;
+flex-wrap: wrap;
+gap: 7px;
+
+margin-bottom: 22px;
+
+}
+
+.doc-topics span {
+padding: 5px 9px;
+
+color: #c4c3d4;
+background: #1c1b2a;
+
+border: 1px solid #302e43;
+border-radius: 7px;
+
+font-size: 11px;
+
+}
+
+.doc-link {
+display: flex;
+align-items: center;
+justify-content: space-between;
+
+gap: 10px;
+margin-top: auto;
+padding-top: 15px;
+
+border-top: 1px solid var(--doc-border);
+
+color: #b8a5ff;
+text-decoration: none;
+
+font-size: 13px;
+font-weight: 700;
+
+transition: color 0.2s;
+
+}
+
+.doc-link span {
+font-size: 18px;
+}
+
+.html-card .doc-link {
+color: #ff9b70;
+}
+
+.css-card .doc-link {
+color: #7db8ff;
+}
+
+.js-card .doc-link {
+color: #f9df77;
+}
+
+.doc-link:hover {
+color: #fff;
+}
+
+/* HOW THEY WORK TOGETHER */
+
+.doc-workflow {
+padding: 24px;
+
+background: var(--doc-card);
+border: 1px solid var(--doc-border);
+border-radius: 16px;
+
+margin-bottom: 42px;
+
+}
+
+.doc-workflow-item {
+display: flex;
+align-items: center;
+gap: 15px;
+}
+
+.workflow-icon {
+width: 46px;
+height: 46px;
+flex-shrink: 0;
+
+display: grid;
+place-items: center;
+
+border-radius: 12px;
+
+font-family: monospace;
+font-size: 18px;
+font-weight: 800;
+
+}
+
+.workflow-html {
+color: #ff9b70;
+background: rgba(228, 77, 38, 0.14);
+}
+
+.workflow-css {
+color: #7db8ff;
+background: rgba(38, 120, 228, 0.14);
+}
+
+.workflow-js {
+color: #f9df77;
+background: rgba(247, 223, 30, 0.12);
+}
+
+.doc-workflow-item > div:nth-child(2) {
+flex: 1;
+min-width: 0;
+}
+
+.doc-workflow-item h3 {
+margin: 0 0 3px;
+font-size: 15px;
+}
+
+.doc-workflow-item p {
+margin: 0;
+color: #9998ad;
+font-size: 13px;
+}
+
+.workflow-role {
+color: #85839b;
+font-size: 11px;
+text-align: right;
+}
+
+.workflow-connector {
+width: 2px;
+height: 22px;
+
+margin: 5px 0 5px 22px;
+
+background: linear-gradient(
+    to bottom,
+    #51436f,
+    #343047
+);
+
+}
+
+/* LEARNING PATH */
+
+.doc-learning-path {
+display: grid;
+grid-template-columns: repeat(2, minmax(0, 1fr));
+gap: 14px;
+
+margin-bottom: 42px;
+
+}
+
+.learning-step {
+display: flex;
+align-items: flex-start;
+gap: 14px;
+
+padding: 20px;
+
+background: var(--doc-card);
+border: 1px solid var(--doc-border);
+border-radius: 13px;
+
+transition: border-color 0.25s;
+
+}
+
+.step-number {
+width: 35px;
+height: 35px;
+flex-shrink: 0;
+
+display: grid;
+place-items: center;
+
+color: #c4b5fd;
+background: #251d3c;
+border-radius: 10px;
+
+font-size: 12px;
+font-weight: 800;
+
+}
+
+.learning-step h3 {
+margin: 0 0 7px;
+font-size: 15px;
+}
+
+.learning-step p {
+margin: 0;
+
+color: #9998ad;
+font-size: 12px;
+line-height: 1.8;
+
+}
+
+/* DOC FOOTER */
+
+.doc-footer {
+display: flex;
+align-items: center;
+justify-content: center;
+gap: 10px;
+
+padding: 25px 0 10px;
+
+border-top: 1px solid var(--doc-border);
+
+color: #77758e;
+font-size: 11px;
+letter-spacing: 1px;
+
+}
+
+.doc-footer-dot {
+width: 7px;
+height: 7px;
+flex-shrink: 0;
+
+border-radius: 50%;
+background: #a78bfa;
+box-shadow: 0 0 10px #a78bfa;
+
+}
+
+/* HOVER */
+
+@media (hover: hover) {
+.doc-language-card:hover {
+transform: translateY(-4px);
+border-color: #66518e;
+}
+
+.learning-step:hover {
+    border-color: #66518e;
+}
+
+}
+
+/* RESPONSIVE */
+
+@media (max-width: 600px) {
+.doc-section {
+padding: 20px 14px;
+}
+
+.doc-hero {
+    padding: 23px;
+    border-radius: 16px;
+}
+
+.doc-hero h2 {
+    font-size: 29px;
+}
+
+.doc-hero > p {
+    font-size: 13px;
+}
+
+.doc-heading h2 {
+    font-size: 20px;
+}
+
+.doc-language-grid,
+.doc-learning-path {
+    grid-template-columns: minmax(0, 1fr);
+}
+
+.doc-language-card {
+    padding: 20px;
+}
+
+.doc-workflow {
+    padding: 18px;
+}
+
+.doc-workflow-item {
+    gap: 11px;
+}
+
+.workflow-icon {
+    width: 40px;
+    height: 40px;
+}
+
+.workflow-role {
+    font-size: 10px;
+}
+
+.doc-workflow-item p {
+    font-size: 12px;
+}
+
+.learning-step {
+    padding: 17px;
+}
+
+.doc-footer {
+    font-size: 9px;
+    letter-spacing: 0.5px;
+}
+
+}
+
+@media (max-width: 360px) {
+.doc-section {
+padding: 16px 8px;
+}
+
+.doc-hero {
+    padding: 17px;
+}
+
+.doc-level {
+    font-size: 9px;
+    letter-spacing: 0;
+}
+
+.doc-workflow {
+    padding: 13px;
+}
+
+.workflow-role {
+    display: none;
+}
+
+}
